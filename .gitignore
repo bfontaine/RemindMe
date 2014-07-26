@@ -4,8 +4,8 @@
 *.pyc
 __pycache__
 .DS_Store
-venv
-dump.rdb
 *.min.css
 *.min.js
 .webassets-cache
+/venv
+/TODO

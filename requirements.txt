@@ -9,6 +9,7 @@ cssmin==0.2.0
 gunicorn==18.0
 itsdangerous==0.24
 pep8==1.5.7
+pymongo==2.7.1
 requests==2.3.0
 webassets==0.9
 webassets-iife==0.1.0
