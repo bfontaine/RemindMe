@@ -1,0 +1,10 @@
+Flask==0.10.1
+Flask-Assets==0.9
+Jinja2==2.7.2
+argparse==1.2.1
+closure==20121212
+cssmin==0.2.0
+gunicorn==18.0
+pep8==1.5.7
+webassets==0.9
+webassets-iife==0.1.0
