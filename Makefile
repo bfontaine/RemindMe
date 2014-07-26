@@ -1,4 +1,4 @@
-.PHONY: all deploy run scheduler stylecheck
+.PHONY: all deploy run freeze scheduler stylecheck
 
 VENV=venv
 BINUTILS=$(VENV)/bin
@@ -7,6 +7,9 @@ all: run
 
 deps: $(VENV)
 	$(BINUTILS)/pip install -qr requirements.txt
+
+freeze: $(VENV)
+	$(BINUTILS)/pip freeze >| requirements.txt
 
 deploy: stylecheck
 	git push
