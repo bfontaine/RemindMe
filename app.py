@@ -10,13 +10,11 @@ app = Flask(__name__)
 assets = Environment(app)
 
 # - JS
-js = Bundle(
-            filters=(IIFE, 'closure_js'), output='rm.js')
+js = Bundle(filters=(IIFE, 'closure_js'), output='rm.js')
 assets.register('js_all', js)
 
 # - CSS
-css = Bundle(
-             filters=('cssmin',), output='rm.css')
+css = Bundle(filters=('cssmin',), output='rm.css')
 assets.register('css_all', css)
 
 
