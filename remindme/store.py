@@ -72,3 +72,12 @@ def get_coll(klass):
     >>> coll = get_coll(User)
     """
     return db[klass.collection]
+
+
+def get_user(**spec):
+    """
+    Return an user according to a spec
+
+    >>> user = get_user(email='foo@bar.com')
+    """
+    return get_coll(User).find_one(spec)

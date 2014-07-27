@@ -16,7 +16,6 @@ deploy: stylecheck
 	git push
 
 run: deps
-	CLOSURE_COMPRESSOR_OPTIMIZATION=ADVANCED_OPTIMIZATIONS \
 	$(BINUTILS)/gunicorn app:app
 
 scheduler: deps
