@@ -1,22 +1,6 @@
-<!doctype html>
-<html lang="fr" dir="ltr">
-    <head>
-        <meta charset="utf-8" />
-        <meta name="language" content="fr" />
-        <title>Remind Me</title>
-        {% assets "css_all" %}
-        <link rel="stylesheet" href="{{ ASSET_URL }}" />
-        {% endassets %}
-        {#
-        <link rel="icon" type="image/png" href="/static/icons/app.png" />
-        <link rel="apple-touch-icon"      href="/static/icons/app.png" />
-        #}
-        <meta name="author"   content="Baptiste Fontaine" />
-    </head>
-    <body class="app">
-        {% assets "js_all" %}
-        <script src="{{ ASSET_URL }}"></script>
-        {% endassets %}
-    </body>
-</html>
-
+{% extends "base.html" %}
+{% block body %}
+Home
+<a href="{{ url_for('login') }}" class="btn btn-block btn-primary">{{ _("Login") }}</a>
+<a href="{{ url_for('signin') }}" class="btn btn-block btn-default">{{ _("Signin") }}</a>
+{% endblock %}

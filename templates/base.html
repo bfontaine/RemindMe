@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="{{ g.lang|default('en') }}" dir="ltr">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="language" content="{{ g.lang|default('en') }}" />
+        <title>Remind Me</title>
+        {% assets "css_all" %}
+        <link rel="stylesheet" href="{{ ASSET_URL }}" />
+        {% endassets %}
+        {#
+        <link rel="icon" type="image/png" href="/static/icons/app.png" />
+        <link rel="apple-touch-icon"      href="/static/icons/app.png" />
+        #}
+        <meta name="author" content="Baptiste Fontaine" />
+    </head>
+    <body class="app">
+        {% block body %}{% endblock %}
+        {% assets "js_all" %}
+        <script src="{{ ASSET_URL }}"></script>
+        {% endassets %}
+    </body>
+</html>
+

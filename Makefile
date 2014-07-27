@@ -30,6 +30,7 @@ $(VENV):
 
 babel-extract:
 	$(BINUTILS)/pybabel extract -F babel.cfg -k lazy_gettext -o messages.pot .
+	$(BINUTILS)/pybabel update -i messages.pot -d $(I18N_DIR)
 
 babel-compile:
 	$(BINUTILS)/pybabel compile -d $(I18N_DIR)
