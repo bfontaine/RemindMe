@@ -2,6 +2,7 @@
 
 VENV=venv
 BINUTILS=$(VENV)/bin
+I18N_DIR=translations
 
 all: run
 
@@ -26,3 +27,9 @@ stylecheck: *.py deps
 
 $(VENV):
 	virtualenv $@
+
+babel-extract:
+	$(BINUTILS)/pybabel extract -F babel.cfg -k lazy_gettext -o messages.pot .
+
+babel-compile:
+	$(BINUTILS)/pybabel compile -d $(I18N_DIR)

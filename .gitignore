@@ -4,6 +4,7 @@
 *.pyc
 __pycache__
 .DS_Store
+*.cfg
 *.min.css
 *.min.js
 .webassets-cache
