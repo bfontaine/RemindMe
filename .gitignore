@@ -6,6 +6,8 @@ __pycache__
 .DS_Store
 *.min.css
 *.min.js
+rm.js
+rm.css
 .webassets-cache
 /venv
 /TODO
