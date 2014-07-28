@@ -3,14 +3,13 @@
 # This file is distributed under the same license as the RemindMe project.
 # Baptiste Fontaine <b@ptistefontaine.fr>, 2014.
 #
-#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2014-07-27 20:41+0200\n"
+"POT-Creation-Date: 2014-07-28 23:42+0200\n"
 "PO-Revision-Date: 2014-07-27 18:47+0200\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Last-Translator: Baptiste Fontaine <b@ptistefontaine.fr>\n"
 "Language-Team: fr <LL@li.org>\n"
 "Plural-Forms: nplurals=2; plural=(n > 1)\n"
 "MIME-Version: 1.0\n"
@@ -20,5 +19,45 @@ msgstr ""
 
 #: templates/main.html:4
 msgid "Login"
+msgstr "Connexion"
+
+#: templates/main.html:5
+msgid "Signin"
+msgstr "Inscription"
+
+#: templates/signin.html:5
+msgid "Email"
+msgstr "Email"
+
+#: templates/signin.html:7
+msgid "We'll use it if you forgot your password"
 msgstr ""
+
+#: templates/signin.html:9
+msgid "Password"
+msgstr "Mot de passe"
+
+#: templates/signin.html:11
+msgid "Choose a strong one that you can remember"
+msgstr ""
+
+#: templates/signin.html:14
+msgid "API User"
+msgstr "Utilisateur de l’API"
+
+#: templates/signin.html:16
+msgid "This is the API user given by Free"
+msgstr "C’est le nom d’utilisateur fourni par Free"
+
+#: templates/signin.html:18
+msgid "API Password"
+msgstr "Mot de passe de l’API"
+
+#: templates/signin.html:20
+msgid "This is the API key given by Free"
+msgstr "C’est la clef fournie par Free"
+
+#: templates/signin.html:23
+msgid "Go"
+msgstr "Hop"
 
