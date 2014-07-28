@@ -50,9 +50,9 @@ class DBObject(object):
 class User(DBObject):
     collection = 'user'
 
-    def __init__(self, username, password, api_username, api_password):
-        super(self, User).__init__({
-            'username': username,
+    def __init__(self, email, password, api_username, api_password):
+        super(User, self).__init__({
+            'email': email,
             'api_username': api_username,
             'api_password': api_password,
         })

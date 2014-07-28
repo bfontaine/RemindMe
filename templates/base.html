@@ -15,6 +15,11 @@
   </head>
   <body class="app">
     <div class="container">
+      {% with messages = get_flashed_messages(with_categories=True) %}
+        {% for category, msg in messages %}
+      <div class="alert alert-{{ category }}">{{ msg }}</div>
+        {% endfor %}
+      {% endwith %}
       {% block body %}{% endblock %}
     </div>
     {% assets "js_all" %}

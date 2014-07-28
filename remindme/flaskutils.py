@@ -28,4 +28,4 @@ unlogged_only = _redirect_cond(lambda: user(), 'app_index', 'unlogged_only')
 
 
 def redirect_for(s, code=302):
-    return redirect(url_for(s, code))
+    return redirect(url_for(s), code)
