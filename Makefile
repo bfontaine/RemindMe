@@ -2,7 +2,9 @@
 
 VENV=venv
 BINUTILS=$(VENV)/bin
+
 I18N_DIR=translations
+DBPATH?=/tmp/rm
 
 all: run
 
@@ -26,6 +28,13 @@ stylecheck: *.py deps
 
 $(VENV):
 	virtualenv $@
+
+# DB
+
+startdb:
+	mongod --dbpath=$(DBPATH)
+
+# I18N
 
 babel-extract:
 	$(BINUTILS)/pybabel extract -F babel.cfg -k lazy_gettext -o messages.pot .
