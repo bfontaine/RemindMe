@@ -1,6 +1,6 @@
 # -*- coding: UTF-8 -*-
 
-from flask import Flask, render_template, g, request, flash
+from flask import Flask, render_template, g, request, flash, session
 from flask.ext.assets import Environment, Bundle
 from flask.ext.babel import Babel, gettext
 from webassets_iife import IIFE
@@ -32,6 +32,15 @@ css = Bundle('css/bootstrap.min.css',
              filters=('cssmin',), output='rm.css')
 assets.register('css_all', css)
 
+@app.before_request
+def set_current_user():
+    _id = session.get('_id')
+    if not _id:
+        return
+    # FIXME cannot find current user
+    setattr(g, 'user', store.get_user(_id=_id))
+
+
 @app.route('/')
 def index():
     return render_template('main.html')
@@ -46,8 +55,15 @@ def app_index():
 @app.route('/login', methods=['GET', 'POST'])
 @unlogged_only
 def login(fields={}):
+    err = gettext('Wrong email or password.')
     if request.method == 'POST':
-        pass  # TODO
+        email = request.form['email']
+        user = store.get_user(email=email)
+        if not user or not user.check_password(request.form['password']):
+            flash(err, 'danger')
+            return redirect_for('login')
+        session['_id'] = str(user._id)
+        return redirect_for('app_index')
     else:
         return render_template('login.html', fields=fields)
 
@@ -84,4 +100,5 @@ def signin(fields={}):
 @logged_only
 def logout():
     g.user = None
+    session.clear()
     redirect_for('index')

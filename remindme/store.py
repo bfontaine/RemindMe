@@ -50,13 +50,17 @@ class DBObject(object):
 class User(DBObject):
     collection = 'user'
 
-    def __init__(self, email, password, api_username, api_password):
-        super(User, self).__init__({
-            'email': email,
-            'api_username': api_username,
-            'api_password': api_password,
-        })
-        self.set_password(password)
+    def __init__(self, email, password=None, api_username=None,
+            api_password=None):
+        if password and api_username and api_password:
+            super(User, self).__init__({
+                'email': email,
+                'api_username': api_username,
+                'api_password': api_password,
+            })
+            self.set_password(password)
+        else:
+            super(User, self).__init__(email) # email is a dict used for attrs
 
     def set_password(self, password):
         self.pw_hash = generate_password_hash(password)
@@ -80,4 +84,6 @@ def get_user(**spec):
 
     >>> user = get_user(email='foo@bar.com')
     """
-    return get_coll(User).find_one(spec)
+    attrs = get_coll(User).find_one(spec)
+    if attrs:
+        return User(attrs)

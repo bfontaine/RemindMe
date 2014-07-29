@@ -1,4 +1,13 @@
 {% extends "base.html" %}
 {% block body %}
-Login
+<form class="form-block form-horizontal" method="post">
+  <div class="form-group form-group-lg">
+    <label class="control-label" for="_ie">{{ _("Email") }}</label>
+    <input type="email" class="form-control" name="email" id="_ie" value="{{ fields.email }}" />
+
+    <label class="control-label" for="_ip">{{ _("Password") }}</label>
+    <input type="password" class="form-control" name="password" id="_ip" value="{{ fields.password }}" />
+  </div>
+  <input class="btn btn-primary" type="submit" value="{{ _("Go") }}" />
+</form>
 {% endblock %}

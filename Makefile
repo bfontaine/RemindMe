@@ -32,6 +32,7 @@ $(VENV):
 # DB
 
 startdb:
+	mkdir -p $(DBPATH)
 	mongod --dbpath=$(DBPATH)
 
 # I18N
