@@ -100,4 +100,4 @@ def signin(fields={}):
 def logout():
     g.user = None
     session.clear()
-    redirect_for('index')
+    return redirect_for('index')
