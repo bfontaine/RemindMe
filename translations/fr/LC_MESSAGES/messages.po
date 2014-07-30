@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2014-07-28 23:42+0200\n"
+"POT-Creation-Date: 2014-07-31 00:10+0200\n"
 "PO-Revision-Date: 2014-07-27 18:47+0200\n"
 "Last-Translator: Baptiste Fontaine <b@ptistefontaine.fr>\n"
 "Language-Team: fr <LL@li.org>\n"
@@ -17,6 +17,22 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 1.3\n"
 
+#: templates/login.html:5 templates/signin.html:5
+msgid "Email"
+msgstr "Email"
+
+#: templates/login.html:8 templates/signin.html:9
+msgid "Password"
+msgstr "Mot de passe"
+
+#: templates/login.html:11 templates/signin.html:23
+msgid "Go"
+msgstr "Hop"
+
+#: templates/logout_partial.html:2
+msgid "Logout"
+msgstr "Déconnexion"
+
 #: templates/main.html:4
 msgid "Login"
 msgstr "Connexion"
@@ -25,21 +41,13 @@ msgstr "Connexion"
 msgid "Signin"
 msgstr "Inscription"
 
-#: templates/signin.html:5
-msgid "Email"
-msgstr "Email"
-
 #: templates/signin.html:7
 msgid "We'll use it if you forgot your password"
-msgstr ""
-
-#: templates/signin.html:9
-msgid "Password"
-msgstr "Mot de passe"
+msgstr "Nous l’utiliserons si vous oubliez votre mot de passe"
 
 #: templates/signin.html:11
 msgid "Choose a strong one that you can remember"
-msgstr ""
+msgstr "Choisissez-en un solide dont vous vous rappelez"
 
 #: templates/signin.html:14
 msgid "API User"
@@ -50,14 +58,9 @@ msgid "This is the API user given by Free"
 msgstr "C’est le nom d’utilisateur fourni par Free"
 
 #: templates/signin.html:18
-msgid "API Password"
-msgstr "Mot de passe de l’API"
+msgid "API Key"
+msgstr "Clef d’API"
 
 #: templates/signin.html:20
 msgid "This is the API key given by Free"
 msgstr "C’est la clef fournie par Free"
-
-#: templates/signin.html:23
-msgid "Go"
-msgstr "Hop"
-
