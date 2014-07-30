@@ -35,10 +35,9 @@ assets.register('css_all', css)
 @app.before_request
 def set_current_user():
     _id = session.get('_id')
-    if not _id:
-        return
-    # FIXME cannot find current user
-    setattr(g, 'user', store.get_user(_id=_id))
+    if _id:
+        # FIXME cannot find current user
+        setattr(g, 'user', store.get_user(_id=_id))
 
 
 @app.route('/')

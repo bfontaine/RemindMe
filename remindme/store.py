@@ -2,6 +2,7 @@
 
 import os
 import pymongo
+from bson.objectid import ObjectId
 
 from werkzeug.security import generate_password_hash, check_password_hash
 
@@ -84,6 +85,10 @@ def get_user(**spec):
 
     >>> user = get_user(email='foo@bar.com')
     """
+
+    if '_id' in spec:
+        spec['_id'] = ObjectId(spec['_id'])
+
     attrs = get_coll(User).find_one(spec)
     if attrs:
         return User(attrs)
