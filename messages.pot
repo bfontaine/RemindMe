@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2014-07-31 00:10+0200\n"
+"POT-Creation-Date: 2014-08-01 00:36+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -16,6 +16,18 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 1.3\n"
+
+#: templates/app_main.html:6
+msgid "Send a new SMS"
+msgstr ""
+
+#: templates/app_main.html:8
+msgid "Text"
+msgstr ""
+
+#: templates/app_main.html:10
+msgid "Send"
+msgstr ""
 
 #: templates/login.html:5 templates/signin.html:5
 msgid "Email"
