@@ -1,6 +1,6 @@
 # -*- coding: UTF-8 -*-
 
-from flask import g, redirect, url_for
+from flask import g, redirect, url_for, session
 
 def user():
     """
@@ -27,5 +27,29 @@ logged_only = _redirect_cond(lambda: user() is None, 'login', 'logged_only')
 unlogged_only = _redirect_cond(lambda: user(), 'app_index', 'unlogged_only')
 
 
-def redirect_for(s, code=302):
+def redirect_for(s, args=None, code=302):
+    """
+    Shortcut for ``redirect(url_for(s), code)``. The second argument can be
+    used to transmit args to the redirected view using ``store_session``.
+    """
+    if args:
+        store_session(args, s)
     return redirect(url_for(s), code)
+
+
+def store_session(args, token):
+    """
+    Store something (``args``) in the session, using ``token`` as an unique
+    identifier.
+    """
+    session.setdefault('args', {})
+    session['args'][token] = args
+
+
+def retrieve_session(token):
+    """
+    Retrieve data from the session, as stored by ``store_session``. This
+    returns ``None`` if this token doesn't has data in this session.
+    """
+    if 'args' in session:
+        return session['args'].pop(token, None)

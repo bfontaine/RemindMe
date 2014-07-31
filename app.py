@@ -5,7 +5,8 @@ from flask.ext.assets import Environment, Bundle
 from flask.ext.babel import Babel, gettext
 from webassets_iife import IIFE
 from remindme import store
-from remindme.flaskutils import logged_only, unlogged_only, redirect_for
+from remindme.flaskutils import logged_only, unlogged_only, redirect_for, \
+        retrieve_session
 
 app = Flask(__name__)
 app.config.from_pyfile('remindme.cfg', silent=True)
@@ -36,7 +37,6 @@ assets.register('css_all', css)
 def set_current_user():
     _id = session.get('_id')
     if _id:
-        # FIXME cannot find current user
         setattr(g, 'user', store.get_user(_id=_id))
 
 
@@ -53,7 +53,7 @@ def app_index():
 
 @app.route('/login', methods=['GET', 'POST'])
 @unlogged_only
-def login(fields={}):
+def login():
     err = gettext('Wrong email or password.')
     if request.method == 'POST':
         email = request.form['email']
@@ -64,25 +64,27 @@ def login(fields={}):
         session['_id'] = str(user._id)
         return redirect_for('app_index')
     else:
+        fields = retrieve_session('login')
         return render_template('login.html', fields=fields)
 
 
 @app.route('/signin', methods=['GET', 'POST'])
 @unlogged_only
-def signin(fields={}):
+def signin():
+    fields = retrieve_session('signin')
     if request.method == 'POST':
         email  = request.form['email']
 
         if store.get_user(email=email):
             flash(gettext('This email is already registered'), 'danger')
-            return redirect_for('signin')  # TODO pass request.form
+            return redirect_for('signin', request.form)
 
         api_user = request.form['api_user']
         api_pass = request.form['api_pass']
 
         if store.get_user(api_user=api_user, api_pass=api_pass):
             flash(gettext('These API credentials are already registered'), 'danger')
-            return redirect_for('signin')  # TODO pass request.form
+            return redirect_for('signin', request.form)
 
         passwd = request.form['password']
 
@@ -90,7 +92,7 @@ def signin(fields={}):
         user.save()
 
         flash(gettext('Your account has been successfully created!'), 'success')
-        return redirect_for('login')  # TODO pass email=user.email
+        return redirect_for('login', {'email': user.email})
     else:
         return render_template('signin.html', fields=fields)
 
