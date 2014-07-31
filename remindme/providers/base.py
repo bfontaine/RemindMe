@@ -1,11 +1,17 @@
 # -*- coding: UTF-8 -*-
 
-
-class MissingConfigParameter(Exception):
+class SMSException(Exception):
     pass
 
 
-class ServerError(Exception):
+class MissingConfigParameter(SMSException):
+
+    def __init__(self, key):
+        msg = "Missing key: '%s'" % (key)
+        super(SMSException, self).__init__(msg)
+
+
+class ServerError(SMSException):
     pass
 
 

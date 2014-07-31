@@ -5,6 +5,7 @@ from flask.ext.assets import Environment, Bundle
 from flask.ext.babel import Babel, gettext
 from webassets_iife import IIFE
 from remindme import store
+from remindme.sms import send_sms, SMSException
 from remindme.flaskutils import logged_only, unlogged_only, redirect_for, \
         retrieve_session
 
@@ -44,11 +45,23 @@ def set_current_user():
 def index():
     return render_template('main.html')
 
-@app.route('/home')
+@app.route('/home', methods=['GET', 'POST'])
 @logged_only
 def app_index():
-    # TODO
-    return render_template('app_main.html')
+    fields = retrieve_session('app_index')
+    if request.method == 'POST':
+        key, pswd = g.user.api_username, g.user.api_password
+        try:
+            send_sms(request.form['text'], {'user': key, 'pass': pswd})
+        except SMSException as e:
+            print e
+            flash(gettext("Oops, error."), 'danger')
+            return redirect_for('app_index')
+        else:
+            flash(gettext("Sent!"), 'success')
+            return redirect_for('app_index')
+    else:
+        return render_template('app_main.html', fields=fields)
 
 
 @app.route('/login', methods=['GET', 'POST'])
@@ -63,9 +76,8 @@ def login():
             return redirect_for('login')
         session['_id'] = str(user._id)
         return redirect_for('app_index')
-    else:
-        fields = retrieve_session('login')
-        return render_template('login.html', fields=fields)
+    fields = retrieve_session('login')
+    return render_template('login.html', fields=fields)
 
 
 @app.route('/signin', methods=['GET', 'POST'])
@@ -93,8 +105,7 @@ def signin():
 
         flash(gettext('Your account has been successfully created!'), 'success')
         return redirect_for('login', {'email': user.email})
-    else:
-        return render_template('signin.html', fields=fields)
+    return render_template('signin.html', fields=fields)
 
 
 @app.route('/logout', methods=['POST'])
