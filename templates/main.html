@@ -1,6 +1,11 @@
 {% extends "base.html" %}
 {% block body %}
-Home
-<a href="{{ url_for('login') }}" class="btn btn-block btn-primary">{{ _("Login") }}</a>
-<a href="{{ url_for('signin') }}" class="btn btn-block btn-default">{{ _("Signin") }}</a>
+<h1>{{ _("RemindMe") }}</h1>
+<p>{{ _("RemindMe is a web application to send SMS reminders to yourselves.") }}</p>
+<p>{{ _("It's free. With Free.") }}</p>
+
+<div class="user-actions">
+    <a href="{{ url_for('login') }}" class="btn btn-lg btn-primary">{{ _("Login") }}</a>
+    <a href="{{ url_for('signin') }}" class="btn btn-lg btn-default">{{ _("Signin") }}</a>
+</div>
 {% endblock %}
