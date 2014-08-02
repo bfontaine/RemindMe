@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2014-08-01 00:36+0200\n"
+"POT-Creation-Date: 2014-08-03 00:35+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -45,11 +45,23 @@ msgstr ""
 msgid "Logout"
 msgstr ""
 
+#: templates/main.html:3
+msgid "RemindMe"
+msgstr ""
+
 #: templates/main.html:4
-msgid "Login"
+msgid "RemindMe is a web application to send SMS reminders to yourselves."
 msgstr ""
 
 #: templates/main.html:5
+msgid "It's free. With Free."
+msgstr ""
+
+#: templates/main.html:8
+msgid "Login"
+msgstr ""
+
+#: templates/main.html:9
 msgid "Signin"
 msgstr ""
 
