@@ -3,6 +3,10 @@
     <div class="form-group">
         <label class="control-label" for="_is">{{ _("Text") }}</label>
         <textarea class="form-control" name="text" id="_ie">{{ fields.text }}</textarea>
+        <div class="btn-group">
+          <a href="#" class="btn btn-default radio radio-active">{{ _("Now") }}</a>
+          <a href="#" class="btn btn-default radio">{{ _("Later") }}</a>
+        </div>
         <input class="btn btn-primary" type="submit" value="{{ _("Send") }}" />
     </div>
 </form>

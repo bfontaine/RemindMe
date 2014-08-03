@@ -23,7 +23,7 @@ js = Bundle(
     # Bootstrap/Bootflat
     'js/jquery.js',
     'js/html5shiv.js',
-    'js/icheck.min.js',
+   #'js/icheck.min.js',
     'js/bootstrap.min.js',
     # Dates parsing
     'js/sugar.js',
