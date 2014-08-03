@@ -7,7 +7,7 @@ from webassets_iife import IIFE
 from remindme import store
 from remindme.sms import send_sms, SMSException
 from remindme.flaskutils import logged_only, unlogged_only, redirect_for, \
-        retrieve_session
+        retrieve_session, user
 
 app = Flask(__name__)
 app.config.from_pyfile('remindme.cfg', silent=True)
@@ -39,6 +39,21 @@ def set_current_user():
     _id = session.get('_id')
     if _id:
         setattr(g, 'user', store.get_user(_id=_id))
+
+
+@babel.localeselector
+def get_locale():
+    # 1. ?lang=
+    lang_param = request.args.get('lang')
+    if lang_param:
+        return lang_param
+    # 2. user.locale
+    u = user()
+    if u and u.locale:
+        return u.locale
+    # 3. request header
+    trs = [str(t) for t in babel.list_translations()]
+    return request.accept_languages.best_match(trs)
 
 
 @app.route('/')
