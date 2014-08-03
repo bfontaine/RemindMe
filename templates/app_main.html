@@ -1,14 +1,5 @@
 {% extends "base.html" %}
 {% block body %}
-{% include "logout_partial.html" %}
-
-<form class="form-block" id="sms-form" method="post">
-    <h1>{{ _("Send a new SMS") }}</h1>
-    <div class="form-group">
-        <label class="control-label" for="_is">{{ _("Text") }}</label>
-        <textarea class="form-control" name="text" id="_ie">{{ fields.text }}</textarea>
-        <input class="btn btn-primary" type="submit" value="{{ _("Send") }}" />
-    </div>
-</form>
-
+{% include "partials/logout.html" %}
+{% include "partials/sms_form.html" %}
 {% endblock %}
