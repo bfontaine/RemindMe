@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2014-08-03 00:35+0200\n"
+"POT-Creation-Date: 2014-08-03 22:11+0200\n"
 "PO-Revision-Date: 2014-07-27 18:47+0200\n"
 "Last-Translator: Baptiste Fontaine <b@ptistefontaine.fr>\n"
 "Language-Team: fr <LL@li.org>\n"
@@ -16,18 +16,6 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 1.3\n"
-
-#: templates/app_main.html:6
-msgid "Send a new SMS"
-msgstr "Envoyer un nouveau SMS"
-
-#: templates/app_main.html:8
-msgid "Text"
-msgstr "Texte"
-
-#: templates/app_main.html:10
-msgid "Send"
-msgstr "Envoyer"
 
 #: templates/login.html:5 templates/signin.html:5
 msgid "Email"
@@ -40,10 +28,6 @@ msgstr "Mot de passe"
 #: templates/login.html:11 templates/signin.html:23
 msgid "Go"
 msgstr "Hop"
-
-#: templates/logout_partial.html:2
-msgid "Logout"
-msgstr "Déconnexion"
 
 #: templates/main.html:3
 msgid "RemindMe"
@@ -88,4 +72,28 @@ msgstr "Clef d’API"
 #: templates/signin.html:20
 msgid "This is the API key given by Free"
 msgstr "C’est la clef fournie par Free"
+
+#: templates/partials/logout.html:2
+msgid "Logout"
+msgstr "Déconnexion"
+
+#: templates/partials/sms_form.html:2
+msgid "Send a new SMS"
+msgstr "Envoyer un nouveau SMS"
+
+#: templates/partials/sms_form.html:4
+msgid "Text"
+msgstr "Texte"
+
+#: templates/partials/sms_form.html:7
+msgid "Now"
+msgstr "Maintenant"
+
+#: templates/partials/sms_form.html:8
+msgid "Later"
+msgstr "Plus tard"
+
+#: templates/partials/sms_form.html:10
+msgid "Send"
+msgstr "Envoyer"
 
