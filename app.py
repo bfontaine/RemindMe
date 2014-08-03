@@ -7,7 +7,7 @@ from webassets_iife import IIFE
 from remindme import store
 from remindme.sms import send_sms, SMSException
 from remindme.flaskutils import logged_only, unlogged_only, redirect_for, \
-        retrieve_session, user
+        retrieve_session, user, set_g
 
 app = Flask(__name__)
 app.config.from_pyfile('remindme.cfg', silent=True)
@@ -27,9 +27,11 @@ js = Bundle(
     'js/bootstrap.min.js',
     # Dates parsing
     'js/sugar.js',
+    'js/sugar-fr.js',
     # Our JS
     'js/app.js',
-    filters=(IIFE, 'closure_js'), output='rm.js')
+    filters=(IIFE, 'closure_js') if not app.config['DEBUG'] else (),
+    output='rm.js')
 assets.register('js_all', js)
 
 # - CSS
@@ -39,7 +41,8 @@ css = Bundle(
     'css/bootflat.min.css',
     # Our JS
     'css/app.css',
-    filters=('cssmin',), output='rm.css')
+    filters=('cssmin',) if not app.config['DEBUG'] else (),
+    output='rm.css')
 assets.register('css_all', css)
 
 @app.before_request
@@ -50,6 +53,7 @@ def set_current_user():
 
 
 @babel.localeselector
+@set_g('locale')
 def get_locale():
     # 1. ?lang=
     lang_param = request.args.get('lang')
@@ -75,7 +79,8 @@ def app_index():
     if request.method == 'POST':
         key, pswd = g.user.api_username, g.user.api_password
         try:
-            send_sms(request.form['text'], {'user': key, 'pass': pswd})
+            send_sms(request.form['text'], request.form['when'],
+                     {'user': key, 'pass': pswd})
         except SMSException as e:
             print e
             flash(gettext("Oops, error."), 'danger')

@@ -26,6 +26,17 @@ logged_only = _redirect_cond(lambda: user() is None, 'login', 'logged_only')
 # decorator: redirect to / if user is logged in
 unlogged_only = _redirect_cond(lambda: user(), 'app_index', 'unlogged_only')
 
+# decorator: save a return value as a g's attribute
+def set_g(attr):
+    def _deco(fun):
+        def _fun(*args, **kwargs):
+            ret = fun(*args, **kwargs)
+            setattr(g, attr, ret)
+            return ret
+        _fun.__name__ = fun.__name__
+        return _fun
+    return _deco
+
 
 def redirect_for(s, args=None, code=302):
     """

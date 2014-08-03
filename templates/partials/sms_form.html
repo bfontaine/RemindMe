@@ -1,12 +1,9 @@
-<form class="form-block" id="sms-form" method="post">
+<form class="form-block" id="sms-form" method="post" data-locale="{{ g.locale }}">
     <h1>{{ _("Send a new SMS") }}</h1>
     <div class="form-group">
         <label class="control-label" for="_is">{{ _("Text") }}</label>
         <textarea class="form-control" name="text" id="_ie">{{ fields.text }}</textarea>
-        <div class="btn-group">
-          <a href="#" class="btn btn-default radio radio-active">{{ _("Now") }}</a>
-          <a href="#" class="btn btn-default radio">{{ _("Later") }}</a>
-        </div>
+        <input class="form-control" type="text" name="when" id="when" placeholder="{{ _("Now") }}" />
         <input class="btn btn-primary" type="submit" value="{{ _("Send") }}" />
     </div>
 </form>
