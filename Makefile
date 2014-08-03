@@ -43,3 +43,6 @@ babel-extract:
 
 babel-compile:
 	$(BINUTILS)/pybabel compile -d $(I18N_DIR)
+
+babel-init-lang:
+	$(BINUTILS)/pybabel init -i messages.pot -d $(I18N_DIR) -l $(NEW_LANG)

@@ -1,4 +1,4 @@
-# French translations for RemindMe.
+# English translations for RemindMe.
 # Copyright (C) 2014 Baptiste Fontaine
 # This file is distributed under the same license as the RemindMe project.
 # Baptiste Fontaine <b@ptistefontaine.fr>, 2014.
@@ -8,10 +8,10 @@ msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2014-08-03 00:35+0200\n"
-"PO-Revision-Date: 2014-07-27 18:47+0200\n"
+"PO-Revision-Date: 2014-08-03 13:58+0200\n"
 "Last-Translator: Baptiste Fontaine <b@ptistefontaine.fr>\n"
-"Language-Team: fr <LL@li.org>\n"
-"Plural-Forms: nplurals=2; plural=(n > 1)\n"
+"Language-Team: en <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -19,31 +19,31 @@ msgstr ""
 
 #: templates/app_main.html:6
 msgid "Send a new SMS"
-msgstr "Envoyer un nouveau SMS"
+msgstr ""
 
 #: templates/app_main.html:8
 msgid "Text"
-msgstr "Texte"
+msgstr ""
 
 #: templates/app_main.html:10
 msgid "Send"
-msgstr "Envoyer"
+msgstr ""
 
 #: templates/login.html:5 templates/signin.html:5
 msgid "Email"
-msgstr "Email"
+msgstr ""
 
 #: templates/login.html:8 templates/signin.html:9
 msgid "Password"
-msgstr "Mot de passe"
+msgstr ""
 
 #: templates/login.html:11 templates/signin.html:23
 msgid "Go"
-msgstr "Hop"
+msgstr ""
 
 #: templates/logout_partial.html:2
 msgid "Logout"
-msgstr "Déconnexion"
+msgstr ""
 
 #: templates/main.html:3
 msgid "RemindMe"
@@ -51,41 +51,41 @@ msgstr ""
 
 #: templates/main.html:4
 msgid "RemindMe is a web application to send SMS reminders to yourselves."
-msgstr "RemindMe est une application Web pour s'envoyer des rappels par SMS."
+msgstr ""
 
 #: templates/main.html:5
 msgid "It's free. With Free."
-msgstr "C'est gratuit. Avec Free."
+msgstr ""
 
 #: templates/main.html:8
 msgid "Login"
-msgstr "Connexion"
+msgstr ""
 
 #: templates/main.html:9
 msgid "Signin"
-msgstr "Inscription"
+msgstr ""
 
 #: templates/signin.html:7
 msgid "We'll use it if you forgot your password"
-msgstr "Nous l’utiliserons si vous oubliez votre mot de passe"
+msgstr ""
 
 #: templates/signin.html:11
 msgid "Choose a strong one that you can remember"
-msgstr "Choisissez-en un solide dont vous vous rappelez"
+msgstr ""
 
 #: templates/signin.html:14
 msgid "API User"
-msgstr "Utilisateur de l’API"
+msgstr ""
 
 #: templates/signin.html:16
 msgid "This is the API user given by Free"
-msgstr "C’est le nom d’utilisateur fourni par Free"
+msgstr ""
 
 #: templates/signin.html:18
 msgid "API Key"
-msgstr "Clef d’API"
+msgstr ""
 
 #: templates/signin.html:20
 msgid "This is the API key given by Free"
-msgstr "C’est la clef fournie par Free"
+msgstr ""
 
