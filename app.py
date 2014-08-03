@@ -19,19 +19,27 @@ babel = Babel(app)
 assets = Environment(app)
 
 # - JS
-js = Bundle('js/jquery.js',
-            'js/html5shiv.js',
-            'js/icheck.min.js',
-            'js/bootstrap.min.js',
-            'js/app.js',
-            filters=(IIFE, 'closure_js'), output='rm.js')
+js = Bundle(
+    # Bootstrap/Bootflat
+    'js/jquery.js',
+    'js/html5shiv.js',
+    'js/icheck.min.js',
+    'js/bootstrap.min.js',
+    # Dates parsing
+    'js/sugar.js',
+    # Our JS
+    'js/app.js',
+    filters=(IIFE, 'closure_js'), output='rm.js')
 assets.register('js_all', js)
 
 # - CSS
-css = Bundle('css/bootstrap.min.css',
-             'css/bootflat.min.css',
-             'css/app.css',
-             filters=('cssmin',), output='rm.css')
+css = Bundle(
+    # Bootstrap/Bootflat
+    'css/bootstrap.min.css',
+    'css/bootflat.min.css',
+    # Our JS
+    'css/app.css',
+    filters=('cssmin',), output='rm.css')
 assets.register('css_all', css)
 
 @app.before_request
