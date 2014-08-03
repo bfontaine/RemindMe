@@ -6,9 +6,9 @@ from bson.objectid import ObjectId
 
 from werkzeug.security import generate_password_hash, check_password_hash
 
-client = pymongo.MongoClient(host=os.environ.get('REMINDME_MONGO_URI',
+client = pymongo.MongoClient(host=os.environ.get('MONGO_URL',
                                                  'localhost'))
-db = client[os.environ.get('REMINDME_MONGO_DB', 'remindme')]
+db = client[os.environ.get('MONGODB_DATABASE', 'remindme')]
 
 class DBObject(object):
     collection = 'main'
