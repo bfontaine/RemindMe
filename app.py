@@ -28,6 +28,7 @@ js = Bundle(
     # Dates parsing
     'js/sugar.js',
     'js/sugar-fr.js',
+    'js/angular.min.js',
     # Our JS
     'js/app.js',
     filters=(IIFE, 'closure_js') if not app.config['DEBUG'] else (),

@@ -1,16 +1,10 @@
-(function() {
-  // RemindMe code
-  // yo
+var app = angular.module('pcRemindMe', []);
 
-  // TODO use Angular, this is just a test
-  var $form = $('#sms-form');
-  if (!$form.length) return;
+app.config(function($interpolateProvider) {
+  $interpolateProvider.startSymbol('_{');
+  $interpolateProvider.endSymbol('}_');
+});
 
-  Date.setLocale($form.attr('data-locale'));
-
-  $('#when').on('blur', function() {
-    $(this).val(function(_, text) {
-      return Date.future(text).toGMTString();
-    });
-  });
-})();
+app.controller('pcSMSCtrl', function pcSMSCtrl($scope) {
+  // TODO
+});

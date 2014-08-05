@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="{{ g.lang|default('en') }}" dir="ltr">
+<html lang="{{ g.lang|default('en') }}" dir="ltr" {% block html_attrs %}{% endblock %}>
   <head>
     <meta charset="utf-8" />
     <meta name="language" content="{{ g.lang|default('en') }}" />
@@ -12,6 +12,10 @@
     <link rel="apple-touch-icon"      href="/static/icons/app.png" />
     #}
     <meta name="author" content="Baptiste Fontaine" />
+
+    {% assets "js_all" %}
+    <script src="{{ ASSET_URL }}"></script>
+    {% endassets %}
   </head>
   <body class="app">
     <div class="container">
@@ -22,9 +26,6 @@
       {% endwith %}
       {% block body %}{% endblock %}
     </div>
-    {% assets "js_all" %}
-    <script src="{{ ASSET_URL }}"></script>
-    {% endassets %}
   </body>
 </html>
 
