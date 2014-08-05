@@ -56,16 +56,16 @@ def set_current_user():
 @babel.localeselector
 @set_g('locale')
 def get_locale():
+    trs = [str(t) for t in babel.list_translations()]
     # 1. ?lang=
     lang_param = request.args.get('lang')
-    if lang_param:
+    if lang_param and lang_param[:2] in trs:
         return lang_param
     # 2. user.locale
     u = user()
     if u and u.locale:
         return u.locale
     # 3. request header
-    trs = [str(t) for t in babel.list_translations()]
     return request.accept_languages.best_match(trs)
 
 
