@@ -3,10 +3,12 @@
   <form ng-submit="submitForm"
         class="form-block" id="sms-form" method="post">
       <h1>{{ _("Send a new SMS") }}</h1>
+      <input type="hidden" name="when" value="_{ whenText|parseDate }_" />
       <div class="form-group">
           <label class="control-label" for="_is">{{ _("Text") }}</label>
           <textarea class="form-control" name="text" id="_ie" data-ng-model="text">{{ fields.text }}</textarea>
-          <input class="form-control" type="text" name="when" id="when" value="{{ _("Today") }}" data-ng-model="when" />
+          <input class="form-control" type="text" name="whenText" id="whenText"
+  value="{{ _("Today") }}" data-ng-model="whenText" />
           <input class="btn btn-primary" type="submit" value="{{ _("Send") }}" />
       </div>
   </form>

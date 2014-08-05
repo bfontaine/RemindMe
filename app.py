@@ -5,7 +5,7 @@ from flask.ext.assets import Environment, Bundle
 from flask.ext.babel import Babel, gettext
 from webassets_iife import IIFE
 from remindme import store
-from remindme.sms import send_sms, SMSException
+from remindme.sms import schedule_sms, SMSException
 from remindme.flaskutils import logged_only, unlogged_only, redirect_for, \
         retrieve_session, user, set_g
 
@@ -80,7 +80,7 @@ def app_index():
     if request.method == 'POST':
         key, pswd = g.user.api_username, g.user.api_password
         try:
-            send_sms(request.form['text'], request.form['when'],
+            schedule_sms(request.form['text'], request.form['when'],
                      {'user': key, 'pass': pswd})
         except SMSException as e:
             print e

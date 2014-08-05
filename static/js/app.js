@@ -12,3 +12,14 @@ app.controller('rmSMSCtrl', function pcSMSCtrl($scope) {
 
   // TODO
 });
+
+app.filter('parseDate', function() {
+    return function(s) {
+        try {
+            return Date.future(s).toISOString();
+        } catch(e) {
+            console.log(e);
+            return '';
+        }
+    };
+});

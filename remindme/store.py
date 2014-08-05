@@ -70,6 +70,17 @@ class User(DBObject):
         return check_password_hash(self.pw_hash, password)
 
 
+class SMS(DBObject):
+    """
+    An SMS. It should have the following fields:
+    - user_id: this will be used to retrieve the user's API credentials
+    - text
+    - send_on: scheduled date
+    """
+
+    collection = 'sms'
+
+
 def get_coll(klass):
     """
     Return the collection associated with a class
