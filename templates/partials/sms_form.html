@@ -1,6 +1,7 @@
-<div ng-init="locale='{{ g.locale }}'" data-ng-controller="pcSMSCtrl">
+<div ng-init="locale='{{ g.locale }}'" data-ng-controller="rmSMSCtrl">
 
-  <form class="form-block" id="sms-form" method="post">
+  <form ng-submit="submitForm"
+        class="form-block" id="sms-form" method="post">
       <h1>{{ _("Send a new SMS") }}</h1>
       <div class="form-group">
           <label class="control-label" for="_is">{{ _("Text") }}</label>

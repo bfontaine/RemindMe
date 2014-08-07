@@ -87,7 +87,7 @@ def app_index():
             flash(gettext("Oops, error."), 'danger')
             return redirect_for('app_index')
         else:
-            flash(gettext("Sent!"), 'success')
+            flash(gettext("Scheduled!"), 'success')
             return redirect_for('app_index')
     else:
         return render_template('app_main.html', fields=fields)
