@@ -1,19 +1,16 @@
 # -*- coding: UTF-8 -*-
 
-import logging
 import pytz
 from datetime import datetime, date, time
 from dateutil.parser import parse as parse_date
 
+from log import logger
 from store import SMS
 
 from providers.base import MissingConfigParameter, ServerError, SMSException
 
 # we only support 'Free' for now
 from providers.free import FreeProvider as DefaultProvider
-
-logger = logging.getLogger('rm.sms')
-logger.addHandler(logging.StreamHandler())
 
 
 def send_sms(msg, params):
