@@ -70,6 +70,7 @@ def get_locale():
 
 
 @app.route('/')
+@unlogged_only
 def index():
     return render_template('main.html')
 
