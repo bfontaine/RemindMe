@@ -1,10 +1,12 @@
-.PHONY: all deploy run freeze scheduler stylecheck
+.PHONY: all deploy run freeze scheduler stylecheck bootstrap
 
 VENV=venv
 BINUTILS=$(VENV)/bin
 
-I18N_DIR=translations
 DBPATH?=/tmp/rm
+
+I18N_DIR=translations
+LOCALES=en fr
 
 all: run
 
@@ -19,7 +21,6 @@ freeze: $(VENV)
 deploy: stylecheck
 	git push
 
-#run: deps
 run:
 	$(BINUTILS)/gunicorn app:app
 
@@ -31,6 +32,8 @@ stylecheck: *.py deps
 
 $(VENV):
 	virtualenv $@
+
+bootstrap: deps babel-compile
 
 # DB
 
@@ -46,12 +49,3 @@ babel-extract:
 
 babel-compile:
 	$(BINUTILS)/pybabel compile -d $(I18N_DIR)
-
-
-# init a new language
-# e.g.: make translations/es
-translations/%:
-	locale=$$(echo $@ | cut -d/ -f2); \
-	$(BINUTILS)/pybabel init -i messages.pot -d $@ -l $$locale; \
-	curl "https://raw.githubusercontent.com/angular/angular.js/master/src/ngLocale/angular-locale_$$locale.js" \
-		> static/js/angular-locale_$$locale.js
