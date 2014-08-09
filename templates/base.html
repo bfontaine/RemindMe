@@ -1,8 +1,8 @@
 <!doctype html>
-<html lang="{{ g.lang|default('en') }}" dir="ltr" {% block html_attrs %}{% endblock %}>
+<html lang="{{ g.locale|default('en') }}" dir="ltr" {% block html_attrs %}{% endblock %}>
   <head>
     <meta charset="utf-8" />
-    <meta name="language" content="{{ g.lang|default('en') }}" />
+    <meta name="language" content="{{ g.locale|default('en') }}" />
     <title>Remind Me</title>
     {% assets "css_all" %}
     <link rel="stylesheet" href="{{ ASSET_URL }}" />
@@ -16,6 +16,10 @@
     {% assets "js_all" %}
     <script src="{{ ASSET_URL }}"></script>
     {% endassets %}
+    {# L10N #}
+    {% if g.locale is defined and g.locale != 'en' %}
+    <script src="/static/js/angular-locale_{{ g.locale }}.js"></script>
+    {% endif %}
   </head>
   <body class="app">
     <div class="container">
