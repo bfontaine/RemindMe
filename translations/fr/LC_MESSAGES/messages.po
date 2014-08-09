@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2014-08-07 01:15+0200\n"
+"POT-Creation-Date: 2014-08-09 15:29+0200\n"
 "PO-Revision-Date: 2014-07-27 18:47+0200\n"
 "Last-Translator: Baptiste Fontaine <b@ptistefontaine.fr>\n"
 "Language-Team: fr <LL@li.org>\n"
@@ -77,7 +77,7 @@ msgstr "C’est la clef fournie par Free"
 msgid "Logout"
 msgstr "Déconnexion"
 
-#: templates/partials/sms_form.html:4
+#: templates/partials/sms_form.html:5
 msgid "Send a new SMS"
 msgstr "Envoyer un nouveau SMS"
 
@@ -85,17 +85,7 @@ msgstr "Envoyer un nouveau SMS"
 msgid "Text"
 msgstr "Texte"
 
-#: templates/partials/sms_form.html:10
-msgid "Today"
-msgstr "Aujourd'hui"
-
-#: templates/partials/sms_form.html:11
-msgid "Send"
-msgstr "Envoyer"
-
-#~ msgid "Now"
-#~ msgstr "Maintenant"
-
-#~ msgid "Later"
-#~ msgstr "Plus tard"
+#: templates/partials/sms_form.html:15
+msgid "Save"
+msgstr "Enregistrer"
 

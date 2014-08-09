@@ -19,7 +19,8 @@ freeze: $(VENV)
 deploy: stylecheck
 	git push
 
-run: deps
+#run: deps
+run:
 	$(BINUTILS)/gunicorn app:app
 
 scheduler: deps
