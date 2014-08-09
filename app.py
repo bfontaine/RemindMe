@@ -25,14 +25,12 @@ js = Bundle(
     'js/html5shiv.js',
    #'js/icheck.min.js',
     'js/bootstrap.min.js',
-    # Dates parsing
-    'js/sugar.js',
-    'js/sugar-fr.js',
-    'js/angular.min.js',
+    'js/angular.js',
+    'js/ui-bootstrap-tpls-0.11.0.js',
     # Our JS
     'js/app.js',
     filters=(IIFE, 'closure_js') if not app.config['DEBUG'] else (),
-    output='rm.js')
+    output='js/rm.js')
 assets.register('js_all', js)
 
 # - CSS
@@ -43,7 +41,7 @@ css = Bundle(
     # Our JS
     'css/app.css',
     filters=('cssmin',) if not app.config['DEBUG'] else (),
-    output='rm.css')
+    output='css/rm.css')
 assets.register('css_all', css)
 
 @app.before_request

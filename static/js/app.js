@@ -1,4 +1,4 @@
-var app = angular.module('rmRemindMe', []);
+var app = angular.module('rmRemindMe', ['ui.bootstrap']);
 
 app.config(function($interpolateProvider) {
   $interpolateProvider.startSymbol('_{');
@@ -7,19 +7,23 @@ app.config(function($interpolateProvider) {
 
 app.controller('rmSMSCtrl', function pcSMSCtrl($scope) {
 
-  // hard submit for now, see #12
-  $scope.submitForm = function() { $('#sms-form').submit(); };
+  $scope.when = {
+    day: null,           // selected day
+    time: null,          // selected time
 
-  // TODO
-});
+    // config
+    minDate: new Date()  // only in the future
+  };
 
-app.filter('parseDate', function() {
-    return function(s) {
-        try {
-            return Date.future(s).toISOString();
-        } catch(e) {
-            console.log(e);
-            return '';
-        }
-    };
+  // returns the currently selected dateas an ISO string
+  $scope.whenStr = function() {
+    return 'TODO';
+  };
+
+
+  $scope.scheduleSMS = function() {
+    // TODO
+
+    console.log(w=$scope.when);
+  };
 });
