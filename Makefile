@@ -1,6 +1,6 @@
 .PHONY: all deploy run freeze scheduler stylecheck bootstrap
 
-VENV=venv
+VENV=./venv
 BINUTILS=$(VENV)/bin
 
 DBPATH?=/tmp/rm
