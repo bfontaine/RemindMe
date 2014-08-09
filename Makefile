@@ -6,7 +6,9 @@ BINUTILS=$(VENV)/bin
 DBPATH?=/tmp/rm
 
 I18N_DIR=translations
-LOCALES=en fr
+
+PIP=$(BINUTILS)/pip
+PYBABEL=$(BINUTILS)/pybabel
 
 all: run
 
@@ -15,8 +17,8 @@ deps: $(VENV)
 
 freeze: $(VENV)
 	@echo make sure that Jinja2 uses the patched 2.7.2 version: \
-	@git+git://github.com/ikudriavtsev/jinja2.git@127e26e8ede5e0af3b4a3fe02f1690aa4a6484ff
-	$(BINUTILS)/pip freeze >| requirements.txt
+	 git+git://github.com/ikudriavtsev/jinja2.git@127e26e8ede5e0af3b4a3fe02f1690aa4a6484ff
+	$(PIP) freeze >| requirements.txt
 
 deploy: stylecheck
 	git push
@@ -44,8 +46,8 @@ startdb:
 # I18N
 
 babel-extract:
-	$(BINUTILS)/pybabel extract -F babel.cfg -k lazy_gettext -o messages.pot .
-	$(BINUTILS)/pybabel update -i messages.pot -d $(I18N_DIR)
+	$(PYBABEL) extract -F babel.cfg -k lazy_gettext -o messages.pot .
+	$(PYBABEL) update -i messages.pot -d $(I18N_DIR)
 
 babel-compile:
-	$(BINUTILS)/pybabel compile -d $(I18N_DIR)
+	$(PYBABEL) compile -d $(I18N_DIR)
