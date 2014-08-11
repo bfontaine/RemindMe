@@ -49,15 +49,23 @@ class DBObject(object):
 
 
 class User(DBObject):
+    """
+    An user. It should have the following fields:
+    - email
+    - pw_hash
+    - api_id
+    - api_key
+    """
+
     collection = 'user'
 
-    def __init__(self, email, password=None, api_username=None,
-            api_password=None):
-        if password and api_username and api_password:
+    def __init__(self, email, password=None, api_id=None,
+            api_key=None):
+        if password and api_id and api_key:
             super(User, self).__init__({
                 'email': email,
-                'api_username': api_username,
-                'api_password': api_password,
+                'api_id': api_id,
+                'api_key': api_key,
             })
             self.set_password(password)
         else:
@@ -103,3 +111,11 @@ def get_user(**spec):
     attrs = get_coll(User).find_one(spec)
     if attrs:
         return User(attrs)
+
+
+def get_smses(**spec):
+    return map(SMS, get_coll(SMS).find(spec))
+
+
+def del_sms(sms):
+    get_coll(SMS).remove({'_id': sms._id}, 1)

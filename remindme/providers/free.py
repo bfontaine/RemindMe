@@ -9,18 +9,18 @@ class FreeProvider(BaseProvider):
     """
     This is a provider class for the French telco 'Free'.
 
-    >>> f = FreeProvider({'user': '12345678', 'pass':'xyz'})
+    >>> f = FreeProvider({'api_id': '12345678', 'api_key':'xyz'})
     >>> f.send('Hello, World!')
     True
     """
 
     def required_keys(self):
-        return ['user', 'pass']
+        return ['api_id', 'api_key']
 
     def send(self, msg):
         params = {
-            'user': self.params['user'],
-            'pass': self.params['pass'],
+            'user': self.params['api_id'],
+            'pass': self.params['api_key'],
             'msg': msg,
         }
         res = requests.get('https://smsapi.free-mobile.fr/sendmsg',

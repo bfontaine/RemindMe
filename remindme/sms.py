@@ -11,12 +11,12 @@ from providers.base import MissingConfigParameter, ServerError, SMSException
 # we only support 'Free' for now
 from providers.free import FreeProvider as DefaultProvider
 
-# TODO improve this API, 'user' & 'pass' should be 'id' and 'key'
+def send_sms(msg, api_id, api_key, **kw):
+    """
+    Send an SMS.
+    """
+    params = {'api_id': api_id, 'api_key': api_key}
 
-def send_sms(msg, params):
-    """
-    Send an SMS. ``params`` should have the following keys: ``user``, ``pass``.
-    """
     return DefaultProvider(params).send(msg)
 
 
