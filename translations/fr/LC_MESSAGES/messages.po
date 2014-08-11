@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2014-08-09 15:29+0200\n"
+"POT-Creation-Date: 2014-08-11 02:01+0200\n"
 "PO-Revision-Date: 2014-07-27 18:47+0200\n"
 "Last-Translator: Baptiste Fontaine <b@ptistefontaine.fr>\n"
 "Language-Team: fr <LL@li.org>\n"
@@ -77,15 +77,23 @@ msgstr "C’est la clef fournie par Free"
 msgid "Logout"
 msgstr "Déconnexion"
 
-#: templates/partials/sms_form.html:5
+#: templates/partials/sms_form.html:10
 msgid "Send a new SMS"
 msgstr "Envoyer un nouveau SMS"
 
-#: templates/partials/sms_form.html:7
+#: templates/partials/sms_form.html:12
 msgid "Text"
 msgstr "Texte"
 
-#: templates/partials/sms_form.html:15
+#: templates/partials/sms_form.html:20
 msgid "Save"
 msgstr "Enregistrer"
+
+#: templates/partials/sms_form.html:26
+msgid "An error occurred. Please try again in a few minutes."
+msgstr "Une erreur est survenue. Réessayez dans quelques minutes."
+
+#: templates/partials/sms_form.html:27
+msgid "Your SMS has been successfully scheduled!"
+msgstr "Votre SMS a été planifié avec succès !"
 
