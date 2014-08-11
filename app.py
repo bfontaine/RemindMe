@@ -4,7 +4,8 @@ from flask import Flask, render_template, g, request, flash, session
 from flask.ext.assets import Environment, Bundle
 from flask.ext.babel import Babel, gettext
 from webassets_iife import IIFE
-from remindme import store
+
+from remindme import ajax, store
 from remindme.sms import schedule_sms, SMSException
 from remindme.flaskutils import logged_only, unlogged_only, redirect_for, \
         retrieve_session, user
@@ -47,7 +48,7 @@ assets.register('css_all', css)
 @app.before_request
 def set_current_user():
     _id = session.get('_id')
-    if _id:
+    if _id and '/static/' not in request.path:
         setattr(g, 'user', store.get_user(_id=_id))
 
 
@@ -147,3 +148,10 @@ def logout():
     g.user = None
     session.clear()
     return redirect_for('index')
+
+
+## API
+@app.route('/ajax/sms/schedule', methods=['POST'])
+@logged_only
+def ajax_sms_schedule(): # POST text (string), when (ISO date string)
+    return ajax.api_schedule_sms(request.data)

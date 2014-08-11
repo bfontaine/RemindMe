@@ -1,4 +1,9 @@
 <div ng-controller="rmSMSCtrl">
+  <div class="alerts">
+    <div alert ng-repeat="alert in alerts"
+               type="_{alert.type}_"
+               close="closeAlert($index)">_{alert.msg}_</div>
+  </div>
 
   <form ng-submit="scheduleSMS()"
         class="form-block" id="sms-form" method="post">
@@ -17,3 +22,7 @@
   </form>
 
 </div>
+<script type="text/x-strings" id="_strings">
+server-error:{{ _("An error occurred. Please try again in a few minutes.") }}
+success:{{ _("Your SMS has been successfully scheduled!") }}
+</script>
