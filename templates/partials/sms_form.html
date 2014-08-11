@@ -6,11 +6,13 @@
   </div>
 
   <form ng-submit="scheduleSMS()"
+        name="smsform"
         class="form-block" id="sms-form" method="post">
       <h1>{{ _("Send a new SMS") }}</h1>
       <div class="form-group">
           <label class="control-label" for="_is">{{ _("Text") }}</label>
-          <textarea class="form-control" name="text" id="_ie" ng-model="text">{{ fields.text }}</textarea>
+          <textarea class="form-control" name="text" id="_ie" required
+                    ng-model="text">{{ fields.text }}</textarea>
 
           <div datepicker ng-model="when.day"
                show-weeks="false"
