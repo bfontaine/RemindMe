@@ -10,5 +10,4 @@ rm.js
 rm.css
 .webassets-cache
 /venv
-/TODO
 /deploy.sh

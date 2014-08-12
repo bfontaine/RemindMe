@@ -4,7 +4,7 @@ from time import sleep
 from datetime import datetime, timedelta
 
 import store
-from log import logger
+from log import logger  # TODO scheduler-specific logging
 from sms import send_sms
 
 
