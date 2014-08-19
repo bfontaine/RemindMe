@@ -6,16 +6,15 @@ from bson.objectid import ObjectId
 
 from werkzeug.security import generate_password_hash, check_password_hash
 
-client = pymongo.MongoClient(host=os.environ.get('MONGO_URL',
-                                                 'localhost'))
-db = client[os.environ.get('MONGODB_DATABASE', 'remindme')]
+db = None
 
 class DBObject(object):
     collection = 'main'
 
     def __init__(self, attrs=None):
+        connect_db()
         self.__dict__['attrs'] = attrs or {}
-        self.__dict__['_coll'] = db[self.collection]
+        self.__dict__['_coll'] = get_db()[self.collection]
 
     def __setitem__(self, name, value):
         self.attrs[name] = value
@@ -40,7 +39,7 @@ class DBObject(object):
         """
         Retrieve or create an user from its id
         """
-        el = db[self.collection].find_one({'_id': uid})
+        el = self._coll.find_one({'_id': uid})
         if el:
             return el
         el = self(_id=uid)
@@ -89,13 +88,34 @@ class SMS(DBObject):
     collection = 'sms'
 
 
+
+def connect_db():
+    """
+    Populate the global 'db' object.
+    """
+    global db
+    if db is not None:
+        return
+    client = pymongo.MongoClient(host=os.environ.get('MONGO_URL', 'localhost'))
+    db = client[os.environ.get('MONGODB_DATABASE', 'remindme')]
+
+
+def get_db():
+    """
+    Return the global 'db' object, ensuring it has been initialized
+    """
+    global db
+    connect_db()
+    return db
+
+
 def get_coll(klass):
     """
     Return the collection associated with a class
 
     >>> coll = get_coll(User)
     """
-    return db[klass.collection]
+    return get_db()[klass.collection]
 
 
 def get_user(**spec):
