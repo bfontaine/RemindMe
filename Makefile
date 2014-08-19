@@ -1,4 +1,4 @@
-.PHONY: all deploy run freeze scheduler stylecheck bootstrap
+.PHONY: all deploy run freeze scheduler stylecheck bootstrap check covercheck
 
 VENV=./venv
 BINUTILS=$(VENV)/bin
@@ -9,6 +9,9 @@ I18N_DIR=translations
 
 PIP=$(BINUTILS)/pip
 PYBABEL=$(BINUTILS)/pybabel
+
+COVERFILE:=.coverage
+COVERAGE_REPORT:=report -m
 
 all: run
 
@@ -51,3 +54,16 @@ babel-extract:
 
 babel-compile:
 	$(PYBABEL) compile -d $(I18N_DIR)
+
+# Tests
+
+check:
+	$(BINUTILS)/python tests/test.py
+
+covercheck:
+	$(BINUTILS)/coverage run --source=$(SRC) tests/test.py
+	$(BINUTILS)/coverage $(COVERAGE_REPORT)
+
+coverhtml:
+	@make COVERAGE_REPORT=html covercheck
+	@echo '--> open htmlcov/index.html'
