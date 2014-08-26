@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2014-08-11 02:01+0200\n"
+"POT-Creation-Date: 2014-08-13 00:02+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -77,23 +77,23 @@ msgstr ""
 msgid "Logout"
 msgstr ""
 
-#: templates/partials/sms_form.html:10
+#: templates/partials/sms_form.html:11
 msgid "Send a new SMS"
 msgstr ""
 
-#: templates/partials/sms_form.html:12
+#: templates/partials/sms_form.html:13
 msgid "Text"
 msgstr ""
 
-#: templates/partials/sms_form.html:20
+#: templates/partials/sms_form.html:22
 msgid "Save"
 msgstr ""
 
-#: templates/partials/sms_form.html:26
+#: templates/partials/sms_form.html:28
 msgid "An error occurred. Please try again in a few minutes."
 msgstr ""
 
-#: templates/partials/sms_form.html:27
+#: templates/partials/sms_form.html:29
 msgid "Your SMS has been successfully scheduled!"
 msgstr ""
 

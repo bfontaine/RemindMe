@@ -1,5 +1,7 @@
 .PHONY: all deploy run freeze scheduler stylecheck bootstrap check covercheck
 
+SRC=remindme
+
 VENV=./venv
 BINUTILS=$(VENV)/bin
 

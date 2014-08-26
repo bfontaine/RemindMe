@@ -11,3 +11,5 @@ rm.css
 .webassets-cache
 /venv
 /deploy.sh
+.coverage
+/htmlcov
