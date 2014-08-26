@@ -25,9 +25,9 @@ def schedule_sms(msg, when, user_id):
     Schedule an SMS to be sent later. If ``when`` is earlier than today the SMS
     is discarded. Return a boolean.
     """
-    now = datetime.combine(date.today(), time()).replace(tzinfo=pytz.UTC)
+    utcnow = datetime.combine(date.today(), time()).replace(tzinfo=pytz.UTC)
 
-    if when < now:
+    if when < utcnow:
         logger.warn("%s is earlier than today. Discarding." % str(when))
         return False
 
