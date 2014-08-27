@@ -1,7 +1,7 @@
 # -*- coding: UTF-8 -*-
 
 import pytz
-from datetime import datetime, date, time
+from datetime import datetime
 
 from log import logger
 from store import SMS
@@ -10,6 +10,17 @@ from providers.base import MissingConfigParameter, ServerError, SMSException
 
 # we only support 'Free' for now
 from providers.free import FreeProvider as DefaultProvider
+
+def utcnow():
+    """
+    Return a timezone-aware UTC datetime for the current time.
+    """
+    return datetime.utcnow().replace(tzinfo=pytz.utc)
+
+
+def to_utc(d):
+    return d.astimezone(pytz.utc)
+
 
 def send_sms(msg, api_id, api_key, **kw):
     """
@@ -25,9 +36,10 @@ def schedule_sms(msg, when, user_id):
     Schedule an SMS to be sent later. If ``when`` is earlier than today the SMS
     is discarded. Return a boolean.
     """
-    utcnow = datetime.combine(date.today(), time()).replace(tzinfo=pytz.UTC)
 
-    if when < utcnow:
+    when = to_utc(when)
+
+    if when < utcnow():
         logger.warn("%s is earlier than today. Discarding." % str(when))
         return False
 
