@@ -5,7 +5,7 @@ from datetime import datetime, timedelta
 
 import store
 from log import logger  # TODO scheduler-specific logging
-from sms import send_sms
+from core import send_sms
 
 
 def run():

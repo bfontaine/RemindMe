@@ -5,7 +5,7 @@ from dateutil.parser import parse as parse_date
 from flask import Response
 
 from log import logger
-from sms import schedule_sms
+from core import schedule_sms
 from flaskutils import user
 
 

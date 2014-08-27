@@ -6,7 +6,7 @@ from flask.ext.babel import Babel, gettext
 from webassets_iife import IIFE
 
 from remindme import ajax, store
-from remindme.sms import schedule_sms, SMSException
+from remindme.core import schedule_sms, SMSException
 from remindme.flaskutils import logged_only, unlogged_only, redirect_for, \
         retrieve_session, user
 
