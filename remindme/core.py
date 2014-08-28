@@ -18,10 +18,6 @@ def utcnow():
     return datetime.utcnow().replace(tzinfo=pytz.utc)
 
 
-def to_utc(d):
-    return d.astimezone(pytz.utc)
-
-
 def send_sms(msg, api_id, api_key, **kw):
     """
     Send an SMS.
@@ -37,8 +33,7 @@ def schedule_sms(msg, when, user_id):
     is discarded. Return a boolean.
     """
 
-    when = to_utc(when)
-
+    # 'when' must be UTC
     if when < utcnow():
         logger.warn("%s is earlier than today. Discarding." % str(when))
         return False

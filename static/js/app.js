@@ -54,7 +54,7 @@ app.controller('rmSMSCtrl', ['$scope', '$http',
     d.setMinutes(m);
     d.setSeconds(0);
 
-    return d.toString();
+    return d.toUTCString();
   };
 
 
