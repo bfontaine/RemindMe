@@ -44,7 +44,7 @@ app.controller('rmSMSCtrl', ['$scope', '$http',
     $scope.alerts.push({msg: msg, type: typ || 'warning'});
   };
 
-  // returns the currently selected date as an ISO string
+  // returns the currently selected date as a string
   $scope.whenStr = function() {
     var h = $scope.when.time.getHours(),
         m = $scope.when.time.getMinutes(),
@@ -52,11 +52,9 @@ app.controller('rmSMSCtrl', ['$scope', '$http',
 
     d.setHours(h);
     d.setMinutes(m);
+    d.setSeconds(0);
 
-    // http://stackoverflow.com/a/16048201/735926
-    d.setTime(d.getTime() - d.getTimezoneOffset()*60000);
-
-    return d.toISOString();
+    return d.toString();
   };
 
 
