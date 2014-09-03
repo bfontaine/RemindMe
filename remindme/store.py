@@ -138,4 +138,5 @@ def get_smses(**spec):
 
 
 def del_sms(sms):
-    get_coll(SMS).remove({'_id': sms._id}, 1)
+    # http://stackoverflow.com/a/23335020/735926
+    get_coll(SMS).remove({'_id': sms._id}, safe=True)
