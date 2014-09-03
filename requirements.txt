@@ -6,6 +6,7 @@ git+git://github.com/ikudriavtsev/jinja2.git@127e26e8ede5e0af3b4a3fe02f1690aa4a6
 MarkupSafe==0.23
 Werkzeug==0.9.6
 argparse==1.2.1
+arrow==0.4.4
 closure==20121212
 coverage==3.7.1
 cssmin==0.2.0
@@ -14,7 +15,7 @@ itsdangerous==0.24
 pep8==1.5.7
 pymongo==2.7.1
 python-dateutil==2.2
-pytz==2014.4
+pytz==2014.7
 requests==2.3.0
 six==1.7.3
 speaklater==1.3
