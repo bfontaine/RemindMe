@@ -3,9 +3,11 @@
 from time import sleep
 from datetime import datetime, timedelta
 
-import store
-from log import logger  # TODO scheduler-specific logging
 from core import send_sms
+from log import mkLogger
+import store
+
+logger = mkLogger('scheduler')
 
 
 def run():

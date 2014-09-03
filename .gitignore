@@ -13,3 +13,4 @@ rm.css
 /deploy.sh
 .coverage
 /htmlcov
+/*.log
