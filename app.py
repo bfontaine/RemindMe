@@ -58,6 +58,7 @@ def set_current_user():
 @app.before_request
 def set_g_locale():
     if '/static/' not in request.path:
+        logger.debug("setting user locale...")
         setattr(g, 'locale', babel.locale_selector_func())
 
 
