@@ -9,9 +9,12 @@ from remindme import ajax, store
 from remindme.core import schedule_sms, SMSException
 from remindme.flaskutils import logged_only, unlogged_only, redirect_for, \
         retrieve_session, user
+from remindme.log import mkLogger
 
 app = Flask(__name__)
 app.config.from_pyfile('remindme.cfg', silent=True)
+
+logger = mkLogger('app')
 
 # i18n
 babel = Babel(app)
@@ -62,14 +65,19 @@ def set_g_locale():
 def get_locale():
     trs = [str(t) for t in babel.list_translations()]
     # 1. ?locale=
-    locale_param = request.args.get('locale')
-    if locale_param and locale_param[:2] in trs:
-        return locale_param
+    locale_param = request.args.get('locale') or request.args.get('lang')
+    if locale_param:
+        if locale_param[:2] in trs:
+            logger.debug("Known locale param: %s", locale_param)
+            return locale_param
+        logger.debug("Unknown locale param: %s", locale_param)
     # 2. user.locale
     u = user()
     if u and u.locale:
+        logger.debug("Using user locale")
         return u.locale
     # 3. request header
+    logger.debug("locale: fall back in headers")
     return request.accept_languages.best_match(trs)
 
 
