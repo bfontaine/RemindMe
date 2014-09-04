@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2014-08-13 00:02+0200\n"
+"POT-Creation-Date: 2014-09-04 18:49+0200\n"
 "PO-Revision-Date: 2014-07-27 18:47+0200\n"
 "Last-Translator: Baptiste Fontaine <b@ptistefontaine.fr>\n"
 "Language-Team: fr <LL@li.org>\n"
@@ -63,7 +63,7 @@ msgstr "Utilisateur de l’API"
 
 #: templates/signin.html:16
 msgid "This is the API user given by Free"
-msgstr "C’est le nom d’utilisateur fourni par Free"
+msgstr "C’est l’identifiant fourni par Free"
 
 #: templates/signin.html:18
 msgid "API Key"

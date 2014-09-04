@@ -1,7 +1,6 @@
 *~
 .*.sw*
 *.pyc
-*.mo
 __pycache__
 .DS_Store
 *.min.css
