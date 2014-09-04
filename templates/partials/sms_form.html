@@ -1,26 +1,31 @@
-<div ng-controller="rmSMSCtrl">
+<div ng-controller="rmSMSCtrl" id="sms-form">
   <div class="alerts">
     <div alert ng-repeat="alert in alerts"
                type="_{alert.type}_"
                close="closeAlert($index)">_{alert.msg}_</div>
   </div>
 
-  <form ng-submit="scheduleSMS()"
-        name="smsform"
-        class="form-block" id="sms-form" method="post">
-      <h1>{{ _("Send a new SMS") }}</h1>
-      <div class="form-group">
-          <label class="control-label" for="_is">{{ _("Text") }}</label>
-          <textarea class="form-control" name="text" id="_is" required
-                    ng-model="sms.text">{{ fields.text }}</textarea>
-
+  <h1 class="text-center">{{ _("Send a new SMS") }}</h1>
+  <form ng-submit="scheduleSMS()" class="well">
+    <div>
+      <label class="control-label" for="_is">{{ _("Text") }}</label>
+      <textarea class="form-control" name="text" id="_is" required
+                  ng-model="sms.text">{{ fields.text }}</textarea>
+      <div class="vspace20"></div>
+      <div class="row">
+        <div class="col-md-6">
           <div datepicker ng-model="sms.when.day"
                show-weeks="false"
-               min-date="sms.when.minDate" class="well well-sm"></div>
+               min-date="sms.when.minDate"></div>
+        </div>
+        <div class="col-md-6">
           <div timepicker ng-model="sms.when.time" show-meridian="false"></div>
-
-          <input type="submit" class="btn btn-primary" value="{{ _("Save") }}" />
+        </div>
       </div>
+      <div class="vspace10"></div>
+
+      <input type="submit" class="btn btn-primary" value="{{ _("Save") }}" />
+    </div>
   </form>
 
 </div>

@@ -1,3 +1,12 @@
+/* utilities */
+.vspace10 { height: 10px; }
+.vspace20 { height: 20px; }
+
+
 .user-actions {
     max-width: 300px;
+}
+#sms-form {
+  margin: auto;
+  max-width: 740px;
 }

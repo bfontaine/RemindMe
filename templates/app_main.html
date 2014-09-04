@@ -1,6 +1,8 @@
 {% extends "base.html" %}
 {% block html_attrs %}data-ng-app="rmRemindMe"{% endblock %}
+{% block top_body %}
+{% include "partials/topbar.html" %}
+{% endblock %}
 {% block body %}
-{% include "partials/logout.html" %}
 {% include "partials/sms_form.html" %}
 {% endblock %}

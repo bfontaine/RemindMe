@@ -5,8 +5,8 @@ app.config(function($interpolateProvider) {
   $interpolateProvider.endSymbol('}_');
 });
 
-app.controller('rmSMSCtrl', ['$scope', '$http', 'rmL10n', 'rmTime',
-           function pcSMSCtrl($scope ,  $http ,    l10n ,  rmTime) {
+app.controller('rmSMSCtrl', ['$scope', '$http', '$interval', 'rmL10n', 'rmTime',
+  function pcSMSCtrl($scope, $http, $interval, l10n, rmTime) {
 
   _scope = $scope;
 
@@ -27,6 +27,20 @@ app.controller('rmSMSCtrl', ['$scope', '$http', 'rmL10n', 'rmTime',
   };
 
   $scope.initSMS();
+
+  // update each date to have only future ones everytime
+  $scope.timeUpdater = $interval(function() {
+    var nowPlusOneMinute = new Date();
+
+    nowPlusOneMinute.setSeconds(0);
+    nowPlusOneMinute.setMinutes(nowPlusOneMinute.getMinutes() + 1);
+
+    $.each(['day', 'time', 'minDate'], function(_, field) {
+      if ($scope.sms.when[field] < nowPlusOneMinute) {
+          $scope.sms.when[field] = nowPlusOneMinute;
+      }
+    });
+  }, 1000);
 
   /** Alerts *****************************************************************/
 
