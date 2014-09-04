@@ -25,12 +25,12 @@ assets = Environment(app)
 # - JS
 js = Bundle(
     # Bootstrap/Bootflat
-    'js/jquery.js',
-    'js/html5shiv.js',
-   #'js/icheck.min.js',
-    'js/bootstrap.min.js',
-    'js/angular.js',
-    'js/ui-bootstrap-tpls-0.11.0.js',
+    'js/vendor/jquery.js',
+    'js/vendor/html5shiv.js',
+   #'js/vendor/icheck.min.js',
+    'js/vendor/bootstrap.min.js',
+    'js/vendor/angular.js',
+    'js/vendor/ui-bootstrap-tpls-0.11.0.js',
     # Our JS
     'js/utils.js',
     'js/app.js',
