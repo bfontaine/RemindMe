@@ -32,6 +32,7 @@ js = Bundle(
     'js/angular.js',
     'js/ui-bootstrap-tpls-0.11.0.js',
     # Our JS
+    'js/utils.js',
     'js/app.js',
     filters=(IIFE, 'closure_js') if not app.config['DEBUG'] else (),
     output='js/rm.js')

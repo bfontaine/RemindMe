@@ -1,41 +1,35 @@
-// localized strings retrieving from the DOM
-var getString = (function() {
-    var strs = {};
-
-    $(function() {
-        var lines = $('#_strings').html().split(/\n+/);
-        $.each(lines, function(_, line) {
-            var kv = line.split(/^([^:]+):/);
-            if (kv) {
-                strs[kv[1]] = kv[2];
-            }
-        });
-    });
-
-    return function(k) { return strs[k]; };
-})();
-
-
-var app = angular.module('rmRemindMe', ['ui.bootstrap']);
+var app = angular.module('rmRemindMe', ['ui.bootstrap', 'rmUtils']);
 
 app.config(function($interpolateProvider) {
   $interpolateProvider.startSymbol('_{');
   $interpolateProvider.endSymbol('}_');
 });
 
-app.controller('rmSMSCtrl', ['$scope', '$http',
-                             function pcSMSCtrl($scope, $http) {
+app.controller('rmSMSCtrl', ['$scope', '$http', 'rmL10n', 'rmTime',
+           function pcSMSCtrl($scope ,  $http ,    l10n ,  rmTime) {
 
-  $scope.text = '';
-  $scope.when = {
-    day: new Date(),     // selected day
-    time: new Date(),    // selected time
+  _scope = $scope;
 
-    // config
-    minDate: new Date()  // only in the future
+  /** Init *******************************************************************/
+
+  $scope.initSMS = function() {
+    $scope.sms = {
+      text: '',
+
+      when: {
+        day: new Date(),     // selected day
+        time: new Date(),    // selected time
+
+        // config
+        minDate: new Date()  // only in the future
+      }
+    };
   };
 
-  // Alerts
+  $scope.initSMS();
+
+  /** Alerts *****************************************************************/
+
   $scope.alerts = [];
   $scope.closeAlert = function(idx) {
     $scope.alerts.splice(idx, 1);
@@ -44,31 +38,27 @@ app.controller('rmSMSCtrl', ['$scope', '$http',
     $scope.alerts.push({msg: msg, type: typ || 'warning'});
   };
 
+  /** Saving *****************************************************************/
+
   // returns the currently selected date as a string
   $scope.whenStr = function() {
-    var h = $scope.when.time.getHours(),
-        m = $scope.when.time.getMinutes(),
-        d = angular.copy($scope.when.day);
-
-    d.setHours(h);
-    d.setMinutes(m);
-    d.setSeconds(0);
-
-    return d.toUTCString();
+    return rmTime.combineDateTime($scope.sms.when.day, $scope.sms.when.time)
+                 .toUTCString();
   };
 
 
   $scope.scheduleSMS = function() {
     $http.post('/ajax/sms/schedule',
-               {text: $scope.text, when: $scope.whenStr()})
+               {text: $scope.sms.text, when: $scope.whenStr()})
       .error(function(data) {
-          $scope.addAlert(getString('server-error'), 'danger');
+          $scope.addAlert(l10n.getString('server-error'), 'danger');
       })
       .success(function(data) {
           if (data.status) {
-              $scope.addAlert(getString('success'), 'success');
+              $scope.addAlert(l10n.getString('success'), 'success');
+              $scope.initSMS(); // clear the form
           } else {
-              $scope.addAlert(getString('server-error'), 'danger');
+              $scope.addAlert(l10n.getString('server-error'), 'danger');
           }
       });
   };

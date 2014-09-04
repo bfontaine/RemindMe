@@ -11,13 +11,13 @@
       <h1>{{ _("Send a new SMS") }}</h1>
       <div class="form-group">
           <label class="control-label" for="_is">{{ _("Text") }}</label>
-          <textarea class="form-control" name="text" id="_ie" required
-                    ng-model="text">{{ fields.text }}</textarea>
+          <textarea class="form-control" name="text" id="_is" required
+                    ng-model="sms.text">{{ fields.text }}</textarea>
 
-          <div datepicker ng-model="when.day"
+          <div datepicker ng-model="sms.when.day"
                show-weeks="false"
-               min-date="when.minDate" class="well well-sm"></div>
-          <div timepicker ng-model="when.time" show-meridian="false"></div>
+               min-date="sms.when.minDate" class="well well-sm"></div>
+          <div timepicker ng-model="sms.when.time" show-meridian="false"></div>
 
           <input type="submit" class="btn btn-primary" value="{{ _("Save") }}" />
       </div>
