@@ -30,6 +30,8 @@ js = Bundle(
    #'js/vendor/icheck.min.js',
     'js/vendor/bootstrap.min.js',
     'js/vendor/angular.js',
+    'js/vendor/mousetrap.js',
+    'js/vendor/wMousetrap.js',
     'js/vendor/ui-bootstrap-tpls-0.11.0.js',
     # Our JS
     'js/utils.js',

@@ -1,4 +1,4 @@
-var app = angular.module('rmRemindMe', ['ui.bootstrap', 'rmUtils']);
+var app = angular.module('rmRemindMe', ['ui.bootstrap', 'rmUtils', 'mgo-mousetrap']);
 
 app.config(function($interpolateProvider) {
   $interpolateProvider.startSymbol('_{');
