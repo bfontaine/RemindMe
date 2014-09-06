@@ -8,7 +8,7 @@ from webassets_iife import IIFE
 from remindme import ajax, store
 from remindme.core import schedule_sms, SMSException
 from remindme.flaskutils import logged_only, unlogged_only, redirect_for, \
-        retrieve_session, user, title
+    retrieve_session, user, title
 from remindme.log import mkLogger
 
 app = Flask(__name__)
@@ -34,7 +34,7 @@ js = Bundle(
     # Bootstrap/Bootflat
     'js/vendor/jquery.js',
     'js/vendor/html5shiv.js',
-   #'js/vendor/icheck.min.js',
+    # 'js/vendor/icheck.min.js',
     'js/vendor/bootstrap.min.js',
     'js/vendor/angular.js',
     'js/vendor/mousetrap.js',
@@ -60,6 +60,7 @@ css = Bundle(
     filters=css_filters,
     output='css/rm.css')
 assets.register('css_all', css)
+
 
 @app.before_request
 def set_current_user():
@@ -100,6 +101,7 @@ def get_locale():
 def index():
     return render_template('main.html')
 
+
 @app.route('/home', methods=['GET', 'POST'])
 @logged_only
 def app_index():
@@ -108,7 +110,7 @@ def app_index():
         key, pswd = g.user.api_username, g.user.api_password
         try:
             schedule_sms(request.form['text'], request.form['when'],
-                     {'user': key, 'pass': pswd})
+                         {'user': key, 'pass': pswd})
         except SMSException as e:
             print e
             flash(gettext("Oops, error."), 'danger')
@@ -143,7 +145,7 @@ def login():
 def signin():
     fields = retrieve_session('signin')
     if request.method == 'POST':
-        email  = request.form['email']
+        email = request.form['email']
 
         if store.get_user(email=email):
             flash(gettext('This email is already registered'), 'danger')
@@ -153,7 +155,8 @@ def signin():
         api_pass = request.form['api_pass']
 
         if store.get_user(api_user=api_user, api_pass=api_pass):
-            flash(gettext('These API credentials are already registered'), 'danger')
+            flash(gettext('These API credentials are already registered'),
+                  'danger')
             return redirect_for('signin', request.form)
 
         passwd = request.form['password']
@@ -161,7 +164,8 @@ def signin():
         user = store.User(email, passwd, api_user, api_pass)
         user.save()
 
-        flash(gettext('Your account has been successfully created!'), 'success')
+        flash(gettext('Your account has been successfully created!'),
+              'success')
         return redirect_for('login', {'email': user.email})
     return render_template('signin.html', fields=fields)
 
@@ -174,8 +178,8 @@ def logout():
     return redirect_for('index')
 
 
-## API
+# API
 @app.route('/ajax/sms/schedule', methods=['POST'])
 @logged_only
-def ajax_sms_schedule(): # POST text (string), when (ISO date string)
+def ajax_sms_schedule():  # POST text (string), when (UTC date string)
     return ajax.api_schedule_sms(request.data)

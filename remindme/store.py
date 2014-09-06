@@ -8,6 +8,7 @@ from werkzeug.security import generate_password_hash, check_password_hash
 
 db = None
 
+
 class DBObject(object):
     collection = 'main'
 
@@ -58,8 +59,7 @@ class User(DBObject):
 
     collection = 'user'
 
-    def __init__(self, email, password=None, api_id=None,
-            api_key=None):
+    def __init__(self, email, password=None, api_id=None, api_key=None):
         if password and api_id and api_key:
             super(User, self).__init__({
                 'email': email,
@@ -68,7 +68,7 @@ class User(DBObject):
             })
             self.set_password(password)
         else:
-            super(User, self).__init__(email) # email is a dict used for attrs
+            super(User, self).__init__(email)  # email is a dict used for attrs
 
     def set_password(self, password):
         self.pw_hash = generate_password_hash(password)
@@ -86,7 +86,6 @@ class SMS(DBObject):
     """
 
     collection = 'sms'
-
 
 
 def connect_db():

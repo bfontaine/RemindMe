@@ -27,7 +27,6 @@ def json(route):
     return _route
 
 
-
 @json
 def api_schedule_sms(data):
     text, when = data['text'], data['when']

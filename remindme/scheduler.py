@@ -18,7 +18,7 @@ def run():
     one_minute = timedelta(minutes=1)
 
     logger.info('Starting main scheduling loop')
-    while True: # main loop
+    while True:  # main loop
         logger.debug("I'm awake.")
 
         now = datetime.utcnow()
@@ -48,7 +48,7 @@ def run():
             logger.debug("return %s" % str(ret))
             logger.debug("deleting SMS")
             store.del_sms(sms)
-            sleep(0.2) # this gives us a maximum of 5*60=300 SMSes/second
+            sleep(0.2)  # this gives us a maximum of 5*60=300 SMSes/minute
 
         logger.debug('Going to sleep.')
         sleep(60)

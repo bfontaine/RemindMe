@@ -3,6 +3,7 @@
 from flask.ext.babel import gettext
 from flask import g, redirect, url_for, session
 
+
 def user():
     """
     Return the currently connected user
@@ -30,6 +31,7 @@ logged_only = _redirect_cond(lambda: user() is None, 'login', 'logged_only')
 
 # decorator: redirect to / if user is logged in
 unlogged_only = _redirect_cond(lambda: user(), 'app_index', 'unlogged_only')
+
 
 def redirect_for(s, args=None, code=302):
     """
