@@ -1,4 +1,5 @@
-.PHONY: all deploy run freeze scheduler stylecheck bootstrap check covercheck
+.PHONY: all deploy run freeze scheduler stylecheck bootstrap check covercheck \
+	compile-assets
 
 SRC=remindme
 
@@ -43,6 +44,8 @@ $(VENV):
 bootstrap: deps babel-compile
 
 # Assets
+
+compile-assets: static/css/app.css
 
 static/css/app.css: static/css/app.less
 	lessc $< > $@
