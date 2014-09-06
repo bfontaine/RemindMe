@@ -1,3 +1,8 @@
+/* colors */
+
+@lightmint: #48CFAD;
+@darkmint: #37BC9B;
+
 /* utilities */
 .vspace10 { height: 10px; }
 .vspace20 { height: 20px; }
@@ -12,12 +17,30 @@
 }
 
 .thin-form {
-    background-color: #48CFAD;
-    margin-top: 80px;
-    max-width: 340px;
-    padding: 20px 30px 50px;
-    border-radius: 5px;
+  background-color: white;
+  margin-top: 80px;
+  max-width: 340px;
+  padding: 20px 30px 20px;
+  border-radius: 5px;
+
+  input {
+    margin-top: 10px;
+    border: 1px solid #DDD;
+
+    &:first-of-type {
+      margin-top: 0px;
+    }
+
+    &.submit {
+      border: none;
+      margin: 35px 0 10px;
+    }
+  }
 }
-.thin-form input {
-    border: 1px solid #37BC9B;
+
+#login-page {
+  .navbar {
+    background-color: transparent;
+    border-color: transparent;
+  }
 }

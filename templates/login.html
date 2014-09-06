@@ -1,13 +1,25 @@
 {% extends "base.html" %}
+{% block top_body %}
+<div id="login-page">
+{% include "partials/topbar.html" %}
+</div>
+{% endblock %}
 {% block body %}
-<form class="form-block form-horizontal" method="post">
-  <div class="form-group form-group-lg">
-    <label class="control-label" for="_ie">{{ _("Email") }}</label>
-    <input type="email" class="form-control" name="email" id="_ie" value="{{ fields.email }}" />
+<div class="center-block thin-form">
+  <form class="form-block form-horizontal" method="post">
+    <label class="control-label sr-only" for="_ie">{{ _("Email") }}</label>
+    <input type="email"
+           class="form-control input-lg" name="email" id="_ie"
+           placeholder="{{ _("Email") }}"
+           value="{{ fields.email }}" />
 
-    <label class="control-label" for="_ip">{{ _("Password") }}</label>
-    <input type="password" class="form-control" name="password" id="_ip" value="{{ fields.password }}" />
-  </div>
-  <input class="btn btn-primary" type="submit" value="{{ _("Go") }}" />
-</form>
+    <label class="control-label sr-only" for="_ip">{{ _("Password") }}</label>
+    <input type="password" class="form-control input-lg" name="password" id="_ip"
+           placeholder="{{ _("Password") }}"
+           value="{{ fields.password }}" />
+
+    <input class="btn btn-primary btn-lg btn-block submit" type="submit"
+           value="{{ _("Login") }}" />
+  </form>
+</div>
 {% endblock %}
