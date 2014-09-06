@@ -42,6 +42,11 @@ $(VENV):
 
 bootstrap: deps babel-compile
 
+# Assets
+
+static/css/app.css: static/css/app.less
+	lessc $< > $@
+
 # DB
 
 startdb:

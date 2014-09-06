@@ -1,0 +1,50 @@
+/* colors */
+/* utilities */
+.vspace10 {
+  height: 10px;
+}
+.vspace20 {
+  height: 20px;
+}
+a.text {
+  color: inherit;
+}
+.light-bar .navbar {
+  background-color: transparent;
+  border-color: transparent;
+}
+.light-bar .navbar .navbar-brand:focus,
+.light-bar .navbar .navbar-brand:hover {
+  cursor: default;
+  color: inherit;
+}
+.user-actions {
+  max-width: 300px;
+}
+#sms-form {
+  margin: auto;
+  max-width: 740px;
+}
+.form-block {
+  padding: 20px 30px 20px;
+  border-radius: 5px;
+}
+.form-block.form-block-sm {
+  margin-top: 80px;
+  max-width: 340px;
+}
+.form-block.form-block-md {
+  margin-top: 30px;
+  max-width: 420px;
+}
+.form-block input {
+  margin-top: 10px;
+  border: 1px solid #DDD;
+}
+.form-block input:first-of-type {
+  margin-top: 0px;
+}
+.form-block input.submit {
+  border: none;
+  margin: 35px 0 10px;
+}

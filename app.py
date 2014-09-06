@@ -53,10 +53,7 @@ css = Bundle(
     'css/bootstrap.min.css',
     'css/bootflat.min.css',
     # Our JS
-    Bundle(
-        'css/app.less',
-        filters=('less',)
-    ),
+    'css/app.css',
     filters=css_filters,
     output='css/rm.css')
 assets.register('css_all', css)
