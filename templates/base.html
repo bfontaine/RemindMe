@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="language" content="{{ g.locale|default('en') }}" />
-    <title>Remind Me</title>
+    <title>Remind Me{% if g.title %}› {{ g.title }}{% endif %}</title>
     {% assets "css_all" %}
     <link rel="stylesheet" href="{{ ASSET_URL }}" />
     {% endassets %}

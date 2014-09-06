@@ -1,12 +1,12 @@
 {% extends "base.html" %}
 {% block top_body %}
-<div id="login-page">
+<div class="light-bar">
 {% include "partials/topbar.html" %}
 </div>
 {% endblock %}
 {% block body %}
-<div class="center-block thin-form">
-  <form class="form-block form-horizontal" method="post">
+<div class="center-block form-block form-block-sm">
+  <form class="form-horizontal" method="post">
     <label class="control-label sr-only" for="_ie">{{ _("Email") }}</label>
     <input type="email"
            class="form-control input-lg" name="email" id="_ie"

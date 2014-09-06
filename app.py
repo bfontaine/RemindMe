@@ -8,7 +8,7 @@ from webassets_iife import IIFE
 from remindme import ajax, store
 from remindme.core import schedule_sms, SMSException
 from remindme.flaskutils import logged_only, unlogged_only, redirect_for, \
-        retrieve_session, user
+        retrieve_session, user, title
 from remindme.log import mkLogger
 
 app = Flask(__name__)
@@ -121,6 +121,7 @@ def app_index():
 
 
 @app.route('/login', methods=['GET', 'POST'])
+@title('Login')
 @unlogged_only
 def login():
     err = gettext('Wrong email or password.')
@@ -137,6 +138,7 @@ def login():
 
 
 @app.route('/signin', methods=['GET', 'POST'])
+@title('Signin')
 @unlogged_only
 def signin():
     fields = retrieve_session('signin')

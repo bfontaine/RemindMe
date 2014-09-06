@@ -1,25 +1,40 @@
 {% extends "base.html" %}
+{% block top_body %}
+<div class="light-bar">
+{% include "partials/topbar.html" %}
+</div>
+{% endblock %}
 {% block body %}
-<form class="form-block form-horizontal" method="post">
-  <div class="form-group form-group-lg">
-    <label class="control-label" for="_ie">{{ _("Email") }}</label>
-    <input type="email" class="form-control" name="email" id="_ie" value="{{ fields.email }}" />
+<div class="center-block form-block form-block-md">
+  <form class="form-horizontal" method="post">
+    <label class="control-label sr-only" for="_ie">{{ _("Email") }}</label>
+    <input type="email" class="form-control input-lg" name="email" id="_ie"
+           placeholder="{{ _("Email") }}"
+           value="{{ fields.email }}" />
     <span class="help-block">{{ _("We'll use it if you forgot your password") }}</span>
 
-    <label class="control-label" for="_ip">{{ _("Password") }}</label>
-    <input type="password" class="form-control" name="password" id="_ip" value="{{ fields.password }}" />
+    <label class="control-label sr-only" for="_ip">{{ _("Password") }}</label>
+    <input type="password" class="form-control input-lg" name="password" id="_ip"
+           placeholder="{{ _("Password") }}"
+           value="{{ fields.password }}" />
     <span class="help-block">{{ _("Choose a strong one that you can remember") }}</span>
-  </div>
-  <div class="form-group">
-    <label class="control-label" for="_iu">{{ _("API User") }}</label>
-    <input type="text" class="form-control" name="api_user" id="_iu" value="{{ fields.api_user }}" />
+
+    <hr/>
+
+    <label class="control-label sr-only" for="_iu">{{ _("API User") }}</label>
+    <input type="text" class="form-control" name="api_user" id="_iu"
+           placeholder="{{ _("API User") }}"
+           value="{{ fields.api_user }}" />
     <span class="help-block">{{ _("This is the API user given by Free") }}</span>
 
-    <label class="control-label" for="_ip2">{{ _("API Key") }}</label>
-    <input type="text" class="form-control" name="api_pass" id="_ip2" value="{{ fields.api_pass }}" />
+    <label class="control-label sr-only" for="_ip2">{{ _("API Key") }}</label>
+    <input type="text" class="form-control" name="api_pass" id="_ip2"
+           placeholder="{{ _("API Key") }}"
+           value="{{ fields.api_pass }}" />
     <span class="help-block">{{ _("This is the API key given by Free") }}</span>
-  </div>
 
-  <input class="btn btn-primary" type="submit" value="{{ _("Go") }}" />
-</form>
+    <input class="btn btn-primary btn-lg btn-block submit" type="submit"
+           value="{{ _("Go") }}" />
+  </form>
+</div>
 {% endblock %}

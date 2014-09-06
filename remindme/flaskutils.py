@@ -1,5 +1,6 @@
 # -*- coding: UTF-8 -*-
 
+from flask.ext.babel import gettext
 from flask import g, redirect, url_for, session
 
 def user():
@@ -60,3 +61,26 @@ def retrieve_session(token):
     """
     if 'args' in session:
         return session['args'].pop(token, None)
+
+
+###############################################################################
+# Templates
+###############################################################################
+
+def setvar(name, value):
+    """
+    decorator to set a variable on 'g'
+    """
+    def _deco(fun):
+        def _fun(*args, **kwargs):
+            _value = gettext(value) if isinstance(value, str) else value
+            setattr(g, name, _value)
+            return fun(*args, **kwargs)
+
+        _fun.__name__ = fun.__name__
+        return _fun
+
+    return _deco
+
+# shortcut
+title = lambda v: setvar('title', v)
