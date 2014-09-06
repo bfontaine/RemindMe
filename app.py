@@ -22,6 +22,13 @@ babel = Babel(app)
 # assets
 assets = Environment(app)
 
+js_filters = []
+css_filters = []
+
+if not app.config['DEBUG']:
+    js_filters.concat([IIFE, 'closure_js'])
+    css_filters.concat(['cssmin'])
+
 # - JS
 js = Bundle(
     # Bootstrap/Bootflat
@@ -36,7 +43,7 @@ js = Bundle(
     # Our JS
     'js/utils.js',
     'js/app.js',
-    filters=(IIFE, 'closure_js') if not app.config['DEBUG'] else (),
+    filters=js_filters,
     output='js/rm.js')
 assets.register('js_all', js)
 
@@ -46,8 +53,11 @@ css = Bundle(
     'css/bootstrap.min.css',
     'css/bootflat.min.css',
     # Our JS
-    'css/app.css',
-    filters=('cssmin',) if not app.config['DEBUG'] else (),
+    Bundle(
+        'css/app.less',
+        filters=('less',)
+    ),
+    filters=css_filters,
     output='css/rm.css')
 assets.register('css_all', css)
 

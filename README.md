@@ -4,6 +4,10 @@
 
     make bootstrap
 
+You need to install LESS:
+
+    [sudo] npm -g install less
+
 ## i18n
 
 ### Adding a locale
