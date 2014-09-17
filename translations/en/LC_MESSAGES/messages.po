@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2014-09-04 18:49+0200\n"
+"POT-Creation-Date: 2014-09-17 22:46+0200\n"
 "PO-Revision-Date: 2014-08-03 13:58+0200\n"
 "Last-Translator: Baptiste Fontaine <b@ptistefontaine.fr>\n"
 "Language-Team: en <LL@li.org>\n"
@@ -17,19 +17,21 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 1.3\n"
 
-#: templates/login.html:5 templates/signin.html:5
+#: templates/login.html:10 templates/login.html:13 templates/signin.html:10
+#: templates/signin.html:12
 msgid "Email"
 msgstr ""
 
-#: templates/login.html:8 templates/signin.html:9
+#: templates/login.html:16 templates/login.html:18 templates/signin.html:16
+#: templates/signin.html:18
 msgid "Password"
 msgstr ""
 
-#: templates/login.html:11 templates/signin.html:23
-msgid "Go"
+#: templates/login.html:22 templates/main.html:8
+msgid "Login"
 msgstr ""
 
-#: templates/main.html:3
+#: templates/main.html:3 templates/partials/topbar.html:4
 msgid "RemindMe"
 msgstr ""
 
@@ -41,60 +43,64 @@ msgstr ""
 msgid "It's free. With Free."
 msgstr ""
 
-#: templates/main.html:8
-msgid "Login"
-msgstr ""
-
 #: templates/main.html:9
 msgid "Signin"
 msgstr ""
 
-#: templates/signin.html:7
+#: templates/signin.html:14
 msgid "We'll use it if you forgot your password"
 msgstr ""
 
-#: templates/signin.html:11
+#: templates/signin.html:20
 msgid "Choose a strong one that you can remember"
 msgstr ""
 
-#: templates/signin.html:14
+#: templates/signin.html:24 templates/signin.html:26
 msgid "API User"
 msgstr ""
 
-#: templates/signin.html:16
+#: templates/signin.html:28
 msgid "This is the API user given by Free"
 msgstr ""
 
-#: templates/signin.html:18
+#: templates/signin.html:30 templates/signin.html:32
 msgid "API Key"
 msgstr ""
 
-#: templates/signin.html:20
+#: templates/signin.html:34
 msgid "This is the API key given by Free"
 msgstr ""
 
-#: templates/partials/logout.html:2
+#: templates/signin.html:37
+msgid "Go"
+msgstr ""
+
+#: templates/partials/logout.html:2 templates/partials/topbar.html:19
 msgid "Logout"
 msgstr ""
 
-#: templates/partials/sms_form.html:11
+#: templates/partials/sms_form.html:4
 msgid "Send a new SMS"
 msgstr ""
 
-#: templates/partials/sms_form.html:13
+#: templates/partials/sms_form.html:7
 msgid "Text"
 msgstr ""
 
-#: templates/partials/sms_form.html:22
+#: templates/partials/sms_form.html:23
 msgid "Save"
 msgstr ""
 
-#: templates/partials/sms_form.html:28
+#: templates/partials/sms_form.html:29
 msgid "An error occurred. Please try again in a few minutes."
 msgstr ""
 
-#: templates/partials/sms_form.html:29
+#: templates/partials/sms_form.html:30
 msgid "Your SMS has been successfully scheduled!"
+msgstr ""
+
+#: templates/partials/topbar.html:15 templates/partials/user_settings.html:4
+msgid "Settings"
 msgstr ""
 
 #~ msgid "Now"
