@@ -48,7 +48,7 @@ angular.module('rmUtils', [])
 
     /**
      * .combineDateTime(date, time[, withSeconds])
-     * =======================================
+     * ===========================================
      *
      * Combine a date and a time, using only its hours/minutes (no seconds).
      **/
@@ -60,6 +60,18 @@ angular.module('rmUtils', [])
       d.setSeconds(withSeconds ? time.getSeconds() : 0);
 
       return d;
+    };
+
+    /**
+     * .sameDay(day1, day2)
+     * ====================
+     *
+     * Return true if both dates are on the same day.
+     **/
+    this.sameDay = function(day1, day2) {
+      return day1.getDate() === day2.getDate() &&
+             day1.getMonth() === day2.getMonth() &&
+             day1.getFullYear() === day2.getFullYear();
     };
   })
 
