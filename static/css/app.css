@@ -9,6 +9,25 @@
 a.text {
   color: inherit;
 }
+.navbar-default {
+  background-color: #37bc9b;
+  border-color: #37bc9b;
+}
+.navbar-default .dropdown-menu {
+  background-color: #ffffff;
+  border: 1px solid #37bc9b;
+}
+.navbar-default .dropdown-menu li a {
+  color: #333333;
+}
+.navbar-default .dropdown-menu li a:focus,
+.navbar-default .dropdown-menu li a:hover {
+  color: #ffffff;
+  background-color: #48cfad;
+}
+body > .navbar {
+  border-radius: 0;
+}
 .light-bar .navbar {
   background-color: transparent;
   border-color: transparent;
@@ -17,6 +36,13 @@ a.text {
 .light-bar .navbar .navbar-brand:hover {
   cursor: default;
   color: inherit;
+}
+.navbar .dropdown-icon {
+  padding-top: 12px;
+  padding-bottom: 12px;
+}
+.navbar .dropdown-icon i {
+  font-size: 26px;
 }
 .user-actions {
   max-width: 300px;

@@ -76,3 +76,21 @@ angular.module('rmUtils', [])
   })
 
   ;
+
+// other stuff
+$(function() {
+
+  /**
+   * Submit a form from a link with:
+   *
+   *  <form ... name="myname">...</form>
+   *  ...
+   *  <a ... data-rm-submit-"myname">...</a>
+   **/
+  $('a[data-rm-submit]').click(function() {
+    var name = $(this).data('rmSubmit');
+    $('form[name="' + name + '"').first().submit();
+  });
+
+
+});

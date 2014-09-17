@@ -119,6 +119,13 @@ def app_index():
         return render_template('app_main.html', fields=fields)
 
 
+@app.route('/settings')
+@logged_only
+def user_settings():
+    # TODO prefill fields
+    return render_template('app_user_settings.html')
+
+
 @app.route('/login', methods=['GET', 'POST'])
 @title('Login')
 @unlogged_only

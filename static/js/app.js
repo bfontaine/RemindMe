@@ -6,7 +6,7 @@ app.config(function($interpolateProvider) {
 });
 
 app.controller('rmSMSCtrl', ['$scope', '$http', '$interval', 'rmL10n', 'rmTime',
-  function pcSMSCtrl($scope, $http, $interval, l10n, rmTime) {
+  function rmSMSCtrl($scope, $http, $interval, l10n, rmTime) {
 
   _scope = $scope;
 
@@ -81,4 +81,8 @@ app.controller('rmSMSCtrl', ['$scope', '$http', '$interval', 'rmL10n', 'rmTime',
           }
       });
   };
+}]);
+
+app.controller('rmSettingsCtrl', ['$scope', function rmSMSCtrl($scope) {
+  // TODO
 }]);

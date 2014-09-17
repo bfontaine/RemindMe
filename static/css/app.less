@@ -2,6 +2,10 @@
 
 @lightmint: #48CFAD;
 @darkmint: #37BC9B;
+@white: white;
+
+@text: #333;
+@light-text: white;
 
 /* utilities */
 .vspace10 { height: 10px; }
@@ -11,6 +15,30 @@ a.text {
   color: inherit;
 }
 
+.navbar-default {
+  // should already be in bootflat
+  background-color: @darkmint;
+  border-color: @darkmint;
+
+  .dropdown-menu {
+    background-color: @white;
+    border: 1px solid @darkmint;
+
+    li a {
+      color: @text;
+
+      &:focus, &:hover {
+        color: @light-text;
+        background-color: @lightmint;
+      }
+    }
+  }
+}
+
+body > .navbar {
+  // no ugly top corners
+  border-radius: 0;
+}
 
 .light-bar {
   .navbar {
@@ -22,6 +50,16 @@ a.text {
         cursor: default;
         color: inherit;
       }
+    }
+  }
+}
+.navbar {
+  .dropdown-icon {
+    padding-top: 12px;
+    padding-bottom: 12px;
+
+    i {
+      font-size: 26px;
     }
   }
 }

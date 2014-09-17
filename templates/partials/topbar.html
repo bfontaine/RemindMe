@@ -1,4 +1,4 @@
-<nav class="navbar navbar-default" role="navigation">
+<nav class="navbar navbar-default" role="navigation" ng-non-bindable>
   <div class="container-fluid">
     <span class="navbar-brand">
       <a href="/" class="text">{{ _("RemindMe") }}</a>
@@ -7,9 +7,23 @@
       {% endif %}
     </span>
     {% if g.user %}
-    <form class="navbar-form navbar-right" method="post" action="/logout">
-      <button type="submit" class="btn btn-info">{{ _("Logout") }}</button>
-    </form>
+    <form method="post" action="/logout" name="logout" class="hidden"></form>
+    <div class="navbar-right">
+      <ul class="nav navbar-nav">
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle dropdown-icon"
+             title="{{ _("Settings") }}"
+             data-toggle="dropdown"><i class="glyphicon glyphicon-cog"></i></a>
+          <ul class="dropdown-menu" role="menu">
+            <li>
+              <a href="#" data-rm-submit="logout">{{ _("Logout") }}</a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+
+
     {% endif %}
   </div>
 </nav>
