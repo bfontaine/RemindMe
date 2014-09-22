@@ -1,12 +1,14 @@
-var app = angular.module('rmRemindMe', ['ui.bootstrap', 'rmUtils', 'mgo-mousetrap']);
+var app = angular.module('rmRemindMe',
+  ['ui.bootstrap', 'rmUtils', 'mgo-mousetrap', 'ngAnimate']);
 
 app.config(function($interpolateProvider) {
   $interpolateProvider.startSymbol('_{');
   $interpolateProvider.endSymbol('}_');
 });
 
-app.controller('rmSMSCtrl', ['$scope', '$http', '$interval', 'rmL10n', 'rmTime',
-  function rmSMSCtrl($scope, $http, $interval, l10n, rmTime) {
+app.controller('rmSMSCtrl', ['$scope', '$http', '$interval',
+                             '$animate', 'rmL10n', 'rmTime',
+  function rmSMSCtrl($scope, $http, $interval, $animate, l10n, rmTime) {
 
   _scope = $scope;
 
