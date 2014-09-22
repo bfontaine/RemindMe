@@ -1,5 +1,5 @@
 <div class="alerts">
   <div alert ng-repeat="alert in alerts"
              type="_{alert.type}_"
-             close="closeAlert($index)">_{alert.msg}_</div>
+             close="closeAlert(alert)">_{alert.msg}_</div>
 </div>

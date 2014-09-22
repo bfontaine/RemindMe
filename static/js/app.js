@@ -6,9 +6,9 @@ app.config(function($interpolateProvider) {
   $interpolateProvider.endSymbol('}_');
 });
 
-app.controller('rmSMSCtrl', ['$scope', '$http', '$interval',
+app.controller('rmSMSCtrl', ['$scope', '$http', '$interval', '$timeout',
                              '$animate', 'rmL10n', 'rmTime',
-  function rmSMSCtrl($scope, $http, $interval, $animate, l10n, rmTime) {
+  function rmSMSCtrl($scope, $http, $interval, $timeout, $animate, l10n, rmTime) {
 
   _scope = $scope;
 
@@ -52,11 +52,19 @@ app.controller('rmSMSCtrl', ['$scope', '$http', '$interval',
   /** Alerts *****************************************************************/
 
   $scope.alerts = [];
-  $scope.closeAlert = function(idx) {
+  $scope.closeAlert = function(alert) {
+    var idx = $scope.alerts.indexOf(alert);
+    if (idx < 0) { return; }
     $scope.alerts.splice(idx, 1);
   };
   $scope.addAlert = function(msg, typ) {
-    $scope.alerts.push({msg: msg, type: typ || 'warning'});
+    var alert = {msg: msg, type: typ || 'warning'};
+    $scope.alerts.push(alert);
+
+    // hide alerts after 4sec
+    $timeout(function() {
+      $scope.closeAlert(alert);
+    }, 4000);
   };
 
   /** Saving *****************************************************************/
