@@ -9,6 +9,14 @@
 a.text {
   color: inherit;
 }
+#sms-form {
+  position: relative;
+}
+.alerts {
+  position: absolute;
+  width: 100%;
+  top: -74px;
+}
 .navbar-default {
   background-color: #37bc9b;
   border-color: #37bc9b;

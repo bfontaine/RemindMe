@@ -47,8 +47,8 @@ bootstrap: deps babel-compile
 
 compile-assets: static/css/app.css
 
-static/css/app.css: static/css/app.less
-	lessc $< > $@
+static/css/app.css: static/css/*.less
+	lessc static/css/app.less > $@
 
 # DB
 
