@@ -1,3 +1,5 @@
+@import "utils.less";
+
 #sms-form {
   position: relative;
 }
@@ -6,4 +8,28 @@
   position: absolute;
   width: 100%;
   top: -74px;
+
+  .alert {
+    &.ng-enter, &.ng-leave {
+      .transition(0.1s, ease-in);
+    }
+
+    &.ng-enter {
+      opacity: 0;
+
+      &.ng-enter-active {
+        opacity: 1;
+      }
+    }
+
+    &.ng-leave {
+      margin-top: 0px;
+      opacity: 1;
+
+      &.ng-leave-active {
+        margin-top: -80px;
+        opacity: 0;
+      }
+    }
+  }
 }
