@@ -2,10 +2,11 @@
   {% include "partials/alerts.html" %}
 
   <h1 class="text-center">{{ _("Send a new SMS") }}</h1>
-  <form ng-submit="scheduleSMS()" class="well">
+  <form ng-submit="scheduleSMS()" class="well" name="smsForm">
     <div>
       <label class="control-label" for="_is">{{ _("Text") }}</label>
       <textarea class="form-control" name="text" id="_is" required
+                  ng-min-length="1"
                   ng-model="sms.text">{{ fields.text }}</textarea>
       <div class="vspace20"></div>
       <div class="row">
@@ -21,7 +22,9 @@
       </div>
       <div class="vspace10"></div>
 
-      <input type="submit" class="btn btn-primary" value="{{ _("Save") }}" />
+      <input type="submit" class="btn btn-primary"
+             ng-disabled="!smsForm.text.$valid"
+             value="{{ _("Save") }}" />
     </div>
   </form>
 
