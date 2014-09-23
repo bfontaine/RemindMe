@@ -1,10 +1,58 @@
-<div ng-controller="rmSettingsCtrl" id="sms-form">
+<div ng-controller="rmSettingsCtrl" id="settings-form" class="form-block">
   {% include "partials/alerts.html" %}
 
   <h1 class="text-center">{{ _("Settings") }}</h1>
-  <form ng-submit="saveSettings()" class="well">
-    <div>
-      TODO
+  <form ng-submit="saveSettings()" class="form-horizontal">
+
+    <div class="form-group">
+      <h2>{{ _("Localization") }}</h2>
+
+      <label for="_lang" class="control-label">{{ _("Language") }}</label>
+      <select class="form-control" name="lang" id="_lang"
+              value="{{ fields.lang | default('en') }}">
+        {# TODO: use a dynamically generated list #}
+        <option value="fr">{{ _("French") }}</option>
+        <option value="en">{{ _("English") }}</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <h2>{{ _("Credentials") }}</h2>
+
+      <label class="control-label" for="_email">{{ _("Email") }}</label>
+      <input type="email" class="form-control" name="email" id="_email"
+             value="{{ fields.email }}" />
+
+      <label class="control-label" for="_password">{{ _("Password") }}</label>
+      <input type="password" class="form-control" name="password" id="_password"
+             value="{{ fields.password }}" />
+
+      <label for="_api_id" class="control-label">{{ _("API User") }}</label>
+      <input type="text" class="form-control" name="api_id" id="_api_id"
+             value="{{ fields.api_user }}" />
+
+      <label for="_api_key" class="control-label">{{ _("API Key") }}</label>
+      <input type="text" class="form-control" name="api_key" id="_api_key"
+             value="{{ fields.api_pass }}" />
+    </div>
+
+    <div class="form-group">
+      <h2>{{ _("SMSes") }}</h2>
+
+      <label for="_sms_prefix" class="control-label">{{ _("SMS Prefix") }}</label>
+      <input type="text" class="form-control" name="sms_prefix"
+             placeholder="e.g. [RemindMe]"
+             id="_sms_prefix" value="{{ fields.sms_prefix }}" />
+      <span class="help-block">{{ _("This will be prefixed to each one of your future SMSes") }}</span>
+    </div>
+
+    <div class="form-group">
+      <h2>{{ _("Danger Zone") }}</h2>
+
+      <button name="action" value="delete-account"
+              class="btn btn-danger">{{ _("Delete my account") }}</button>
+
+      <p>{{ _("This will permanently delete your account. It can’t be undone.") }}</p>
     </div>
   </form>
 

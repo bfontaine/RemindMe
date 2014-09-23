@@ -124,7 +124,7 @@ def app_index():
 @logged_only
 def user_settings():
     # TODO prefill fields
-    return render_template('app_user_settings.html')
+    return render_template('app_user_settings.html', fields={})
 
 
 @app.route('/login', methods=['GET', 'POST'])
