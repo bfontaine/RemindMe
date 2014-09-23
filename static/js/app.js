@@ -30,24 +30,31 @@ app.controller('rmSMSCtrl', ['$scope', '$http', '$interval', '$timeout',
 
   $scope.initSMS();
 
-  // update each date to have only future ones everytime
-  $scope.timeUpdater = $interval(function() {
-    var nowPlusOneMinute = new Date(),
+  $scope.updateMinDate = function() {
+    var newMinDate = new Date(),
         when = $scope.sms.when;
 
-    nowPlusOneMinute.setSeconds(0);
-    nowPlusOneMinute.setMinutes(nowPlusOneMinute.getMinutes() + 1);
+    // min 2mins in the future
+    newMinDate.setSeconds(0);
+    newMinDate.setMinutes(newMinDate.getMinutes() + 2);
 
-    if (when.day < nowPlusOneMinute) {
-      when.day = nowPlusOneMinute;
-      when.minDate = nowPlusOneMinute;
+    if (when.day < newMinDate) {
+      when.day = newMinDate;
+      when.minDate = newMinDate;
     }
 
-    if (rmTime.sameDay(nowPlusOneMinute, when.day) &&
-          when.time < nowPlusOneMinute) {
-        when.time = nowPlusOneMinute;
+    if (rmTime.sameDay(newMinDate, when.day) &&
+          when.time < newMinDate) {
+        when.time = newMinDate;
       }
+  };
+
+  // update each date to have only future ones everytime
+  $scope.timeUpdater = $interval(function() {
+    $scope.updateMinDate();
   }, 1000);
+
+  $scope.updateMinDate();
 
   /** Alerts *****************************************************************/
 
