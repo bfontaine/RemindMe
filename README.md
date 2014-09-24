@@ -8,6 +8,20 @@ You need to install LESS:
 
     [sudo] npm -g install less
 
+## Run
+
+You have to run three different jobs:
+
+  # run the DB
+  make startdb
+
+  # run the app
+  make run
+
+  # run the scheduler
+  make scheduler
+
+
 ## i18n
 
 ### Adding a locale
