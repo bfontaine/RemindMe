@@ -6,55 +6,41 @@ app.config(function($interpolateProvider) {
   $interpolateProvider.endSymbol('}_');
 });
 
-app.controller('rmSMSCtrl', ['$scope', '$http', '$interval', '$timeout',
-                             '$animate', 'rmL10n', 'rmTime',
-  function rmSMSCtrl($scope, $http, $interval, $timeout, $animate, l10n, rmTime) {
+app.controller('rmSMSCtrl', ['$scope', '$http', '$timeout', '$animate',
+                             'rmL10n', 'rmTime',
+  function rmSMSCtrl($scope, $http, $timeout, $animate, l10n, rmTime) {
 
-  _scope = $scope;
+  _scope = $scope; // debug
 
   /** Init *******************************************************************/
 
   $scope.initSMS = function() {
+    var initialDate = new Date(),
+        // initialize the date to now + 15 minutes
+        initialMinutes = initialDate.getMinutes() + 15;
+
+    // rounded to the next 5 multiple
+    // e.g. 10 -> 15
+    //      13 -> 15
+    //      15 -> 20
+    initialMinutes += 5 - initialMinutes % 5;
+
+    initialDate.setMinutes(initialDate.getMinutes() + 15);
+
     $scope.sms = {
       text: '',
 
       when: {
-        day: new Date(),     // selected day
-        time: new Date(),    // selected time
+        day: initialDate,     // selected day
+        time: initialDate,    // selected time
 
         // config
-        minDate: new Date()  // only in the future
+        minDate: initialDate  // only in the future
       }
     };
   };
 
   $scope.initSMS();
-
-  $scope.updateMinDate = function() {
-    var newMinDate = new Date(),
-        when = $scope.sms.when;
-
-    // min 2mins in the future
-    newMinDate.setSeconds(0);
-    newMinDate.setMinutes(newMinDate.getMinutes() + 2);
-
-    if (when.day < newMinDate) {
-      when.day = newMinDate;
-      when.minDate = newMinDate;
-    }
-
-    if (rmTime.sameDay(newMinDate, when.day) &&
-          when.time < newMinDate) {
-        when.time = newMinDate;
-      }
-  };
-
-  // update each date to have only future ones everytime
-  $scope.timeUpdater = $interval(function() {
-    $scope.updateMinDate();
-  }, 1000);
-
-  $scope.updateMinDate();
 
   /** Alerts *****************************************************************/
 
