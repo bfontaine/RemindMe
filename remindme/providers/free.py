@@ -24,7 +24,7 @@ class FreeProvider(BaseProvider):
             'msg': msg,
         }
         res = requests.get('https://smsapi.free-mobile.fr/sendmsg',
-                params=params, verify=False)
+                           params=params, verify=False)
         if res.status_code == 200:
             return True
         if res.status_code == 400:

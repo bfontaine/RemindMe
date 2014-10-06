@@ -1,5 +1,6 @@
 # -*- coding: UTF-8 -*-
 
+
 class SMSException(Exception):
     pass
 
