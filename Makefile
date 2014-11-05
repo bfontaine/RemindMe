@@ -16,6 +16,9 @@ PYBABEL=$(BINUTILS)/pybabel
 COVERFILE:=.coverage
 COVERAGE_REPORT:=report -m
 
+PROD_REMOTE=prod
+PROD_BRANCH=master
+
 all: run
 
 deps: $(VENV)
@@ -27,7 +30,7 @@ freeze: $(VENV)
 	$(PIP) freeze >| requirements.txt
 
 deploy: stylecheck
-	git push
+	git push $(PROD_REMOTE) $(PROD_BRANCH)
 
 run:
 	$(BINUTILS)/gunicorn app:app
