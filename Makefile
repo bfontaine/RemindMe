@@ -22,11 +22,11 @@ PROD_BRANCH=master
 all: run
 
 deps: $(VENV)
-	$(BINUTILS)/pip install -qr requirements.txt
+	$(BINUTILS)/pip install -r requirements.txt
 
 freeze: $(VENV)
 	@echo make sure that Jinja2 uses the patched 2.7.2 version: \
-	 git+git://github.com/ikudriavtsev/jinja2.git@127e26e8ede5e0af3b4a3fe02f1690aa4a6484ff
+	 git+https://github.com/ikudriavtsev/jinja2.git@127e26e8ede5e0af3b4a3fe02f1690aa4a6484ff
 	$(PIP) freeze >| requirements.txt
 
 deploy: stylecheck
