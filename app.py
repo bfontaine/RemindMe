@@ -8,7 +8,7 @@ from webassets_iife import IIFE
 from remindme import ajax, store
 from remindme.core import schedule_sms, SMSException
 from remindme.flaskutils import logged_only, unlogged_only, redirect_for, \
-    retrieve_session, user, title
+    retrieve_session, user, title, set_debug_mode, is_debug_mode
 from remindme.log import mkLogger
 
 app = Flask(__name__)
@@ -103,6 +103,11 @@ def index():
 @app.route('/home', methods=['GET', 'POST'])
 @logged_only
 def app_index():
+    set_debug_mode(request.args.get('debug_mode'))
+
+    if (is_debug_mode()):
+        flash(gettext("Debug mode"), 'warning')
+
     fields = retrieve_session('app_index')
     if request.method == 'POST':
         key, pswd = g.user.api_username, g.user.api_password

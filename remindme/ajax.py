@@ -6,7 +6,7 @@ from flask import Response
 
 from log import logger
 from core import schedule_sms
-from flaskutils import user
+from flaskutils import user, is_debug_mode
 
 
 def wrap_json(what, code=200):
@@ -36,6 +36,9 @@ def api_schedule_sms(data):
     except Exception as e:
         logger.error(e)
         return {'status': False}
+
+    if is_debug_mode():
+        return {'status': True, 'debug_mode': True}
 
     ret = schedule_sms(text, when, user()._id)
 
