@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2014-09-24 00:09+0200\n"
+"POT-Creation-Date: 2014-11-17 23:56+0100\n"
 "PO-Revision-Date: 2014-07-27 18:47+0200\n"
 "Last-Translator: Baptiste Fontaine <b@ptistefontaine.fr>\n"
 "Language-Team: fr <LL@li.org>\n"
@@ -89,15 +89,39 @@ msgstr "Envoyer un nouveau SMS"
 msgid "Text"
 msgstr "Texte"
 
-#: templates/partials/sms_form.html:27
+#: templates/partials/sms_form.html:15
+msgid "On"
+msgstr "Le"
+
+#: templates/partials/sms_form.html:19
+msgid "Today"
+msgstr "Aujourd’hui"
+
+#: templates/partials/sms_form.html:20
+msgid "Clear"
+msgstr "Effacer"
+
+#: templates/partials/sms_form.html:21
+msgid "Done"
+msgstr "OK"
+
+#: templates/partials/sms_form.html:32
+msgid "at"
+msgstr "à"
+
+#: templates/partials/sms_form.html:37
+msgid "."
+msgstr ""
+
+#: templates/partials/sms_form.html:44
 msgid "Save"
 msgstr "Enregistrer"
 
-#: templates/partials/sms_form.html:33
+#: templates/partials/sms_form.html:50
 msgid "An error occurred. Please try again in a few minutes."
 msgstr "Une erreur est survenue. Réessayez dans quelques minutes."
 
-#: templates/partials/sms_form.html:34
+#: templates/partials/sms_form.html:51
 msgid "Your SMS has been successfully scheduled!"
 msgstr "Votre SMS a été planifié avec succès !"
 
@@ -147,5 +171,7 @@ msgstr "Supprimer mon compte"
 
 #: templates/partials/user_settings.html:55
 msgid "This will permanently delete your account. It can’t be undone."
-msgstr "Cette action va irrémédiablement supprimer votre compte. Elle ne peut être annulée."
+msgstr ""
+"Cette action va irrémédiablement supprimer votre compte. Elle ne peut "
+"être annulée."
 
