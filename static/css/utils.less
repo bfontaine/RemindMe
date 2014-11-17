@@ -22,3 +22,20 @@ a.text {
       -ms-transition: @prop @duration @interpolation;
           transition: @prop @duration @interpolation;
 }
+
+.offset-top-2 { display: inline-block; margin-top: -2px; }
+
+.clickable-text {
+  font-weight:bold;
+  cursor: pointer;
+}
+
+.vertical-middle-text > * { // not efficient
+  vertical-align: middle;
+}
+
+// angular-bootstrap fixes
+
+table[role=grid] {
+  outline: none;
+}

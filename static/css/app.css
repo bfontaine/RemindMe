@@ -9,6 +9,20 @@
 a.text {
   color: inherit;
 }
+.offset-top-2 {
+  display: inline-block;
+  margin-top: -2px;
+}
+.clickable-text {
+  font-weight: bold;
+  cursor: pointer;
+}
+.vertical-middle-text > * {
+  vertical-align: middle;
+}
+table[role=grid] {
+  outline: none;
+}
 #sms-form {
   position: relative;
 }
@@ -42,15 +56,16 @@ a.text {
   background-color: #37bc9b;
   border-color: #37bc9b;
 }
-.navbar-default .dropdown-menu {
+.dropdown-menu {
   background-color: #ffffff;
   border: 1px solid #37bc9b;
+  outline: none;
 }
-.navbar-default .dropdown-menu li a {
+.dropdown-menu li a {
   color: #333333;
 }
-.navbar-default .dropdown-menu li a:focus,
-.navbar-default .dropdown-menu li a:hover {
+.dropdown-menu li a:focus,
+.dropdown-menu li a:hover {
   color: #ffffff;
   background-color: #48cfad;
 }

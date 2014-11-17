@@ -35,9 +35,17 @@ app.controller('rmSMSCtrl', ['$scope', '$http', '$timeout', '$animate',
         time: initialDate,    // selected time
 
         // config
-        minDate: initialDate  // only in the future
+        minDate: initialDate, // only in the future
+
+        datePickerOpened: false
       }
     };
+  };
+
+  $scope.openDatePicker = function($event) {
+    $event.preventDefault();
+    $event.stopPropagation();
+    $scope.sms.when.datePickerOpened = true;
   };
 
   $scope.initSMS();
