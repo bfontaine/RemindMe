@@ -58,14 +58,24 @@ app.controller('rmSMSCtrl', ['$scope', '$http', '$timeout', '$animate',
     if (idx < 0) { return; }
     $scope.alerts.splice(idx, 1);
   };
-  $scope.addAlert = function(msg, typ) {
-    var alert = {msg: msg, type: typ || 'warning'};
+
+  /*
+    Examples:
+      addAlert("my message");                // warning msg
+      addAlert("my message", "info");        // info msg
+      addAlert("my message", "info", 3000);  // fade 3s later
+      addAlert("my message", "info", false); // don't fade
+  */
+  $scope.addAlert = function(msg, type_, timeout) {
+    var alert = {msg: msg, type: type_ || 'warning'};
     $scope.alerts.push(alert);
 
-    // hide alerts after 4sec
-    $timeout(function() {
-      $scope.closeAlert(alert);
-    }, 4000);
+    if (timeout !== false) {
+      // hide alerts after 4sec
+      $timeout(function() {
+        $scope.closeAlert(alert);
+      }, timeout || 4000);
+    }
   };
 
   /** Saving *****************************************************************/
