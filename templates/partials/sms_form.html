@@ -12,23 +12,24 @@
       <div class="row">
         <div class="col-md-12">
           <p class="vertical-middle-text">
-             {{ _("On") }} <time datepicker-popup
-                                 ng-model="sms.when.day"
-                                 is-open="sms.when.datePickerOpened"
-                                 show-button-bar="false"
-                                 current-text="{{ _("Today") }}"
-                                 clear-text="{{ _("Clear") }}"
-                                 close-text="{{ _("Done") }}"
-                                 min-date="sms.when.minDate"
-                                 ng-required="true"
-                                 ng-click="openDatePicker($event)"
-                                 datepicker-options='{
-                                  "show-weeks":false,
-                                  "starting-day": 1,
-                                  "year-range": 3
-                                 }'
-                                 datetime="_{ sms.when.day }_"
-                                 class="clickable-text offset-top-2">_{ sms.when.day|date:'fullDate' }_</time>
+             {{ _("On") }}
+             <time datepicker-popup
+                   ng-model="sms.when.day"
+                   is-open="sms.when.datePickerOpened"
+                   show-button-bar="false"
+                   current-text="{{ _("Today") }}"
+                   clear-text="{{ _("Clear") }}"
+                   close-text="{{ _("Done") }}"
+                   min-date="sms.when.minDate"
+                   ng-required="true"
+                   ng-click="openDatePicker($event)"
+                   datepicker-options='{
+                    "show-weeks":false,
+                    "starting-day": 1,
+                    "year-range": 3
+                   }'
+                   datetime="_{ sms.when.day }_"
+                   class="clickable-text offset-top-2">_{ sms.when.day|date:'fullDate' }_</time>
               {{ _("at") }}
               <span timepicker
                     ng-model="sms.when.time"
