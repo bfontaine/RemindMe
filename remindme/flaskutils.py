@@ -102,5 +102,6 @@ def setvar(name, value):
 
     return _deco
 
+
 # shortcut
 title = lambda v: setvar('title', v)
