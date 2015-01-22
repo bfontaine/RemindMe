@@ -39,7 +39,7 @@ scheduler: deps
 	$(BINUTILS)/python scheduler.py
 
 stylecheck: *.py deps
-	$(BINUTILS)/pep8 *.py remindme/*.py remindme/*/*.py
+	$(BINUTILS)/pep8 *.py $(SRC)
 
 $(VENV):
 	virtualenv $@
