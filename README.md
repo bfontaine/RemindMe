@@ -29,7 +29,7 @@ You have to run three different jobs:
 As an example, let’s say we want to add the spanish locale: `es`. We need to
 initialize the l10n files:
 
-    venv/bin/pybabel init -i messages.pot -d translations/es -l es
+    venv/bin/pybabel init -i messages.pot -d translations -l es
     curl "https://raw.githubusercontent.com/angular/angular.js/master/src/ngLocale/angular-locale_es.js" > static/js/angular-locale_es.js
     make babel-extract
 
