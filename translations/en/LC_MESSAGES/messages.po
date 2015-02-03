@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2014-11-17 23:56+0100\n"
+"POT-Creation-Date: 2015-01-22 23:41+0100\n"
 "PO-Revision-Date: 2014-08-03 13:58+0200\n"
 "Last-Translator: Baptiste Fontaine <b@ptistefontaine.fr>\n"
 "Language-Team: en <LL@li.org>\n"
@@ -93,35 +93,35 @@ msgstr ""
 msgid "On"
 msgstr ""
 
-#: templates/partials/sms_form.html:19
+#: templates/partials/sms_form.html:20
 msgid "Today"
 msgstr ""
 
-#: templates/partials/sms_form.html:20
+#: templates/partials/sms_form.html:21
 msgid "Clear"
 msgstr ""
 
-#: templates/partials/sms_form.html:21
+#: templates/partials/sms_form.html:22
 msgid "Done"
 msgstr ""
 
-#: templates/partials/sms_form.html:32
+#: templates/partials/sms_form.html:33
 msgid "at"
 msgstr ""
 
-#: templates/partials/sms_form.html:37
+#: templates/partials/sms_form.html:38
 msgid "."
 msgstr ""
 
-#: templates/partials/sms_form.html:44
+#: templates/partials/sms_form.html:45
 msgid "Save"
 msgstr ""
 
-#: templates/partials/sms_form.html:50
+#: templates/partials/sms_form.html:51
 msgid "An error occurred. Please try again in a few minutes."
 msgstr ""
 
-#: templates/partials/sms_form.html:51
+#: templates/partials/sms_form.html:52
 msgid "Your SMS has been successfully scheduled!"
 msgstr ""
 
