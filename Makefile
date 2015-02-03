@@ -1,3 +1,5 @@
+# RemindMe Makefile
+
 .PHONY: all deploy run freeze scheduler stylecheck bootstrap check covercheck \
 	compile-assets
 
