@@ -1,7 +1,7 @@
 # -*- coding: UTF-8 -*-
 
 
-import requests
+from freesms import FreeClient
 from base import BaseProvider, MissingConfigParameter, ServerError
 
 
@@ -20,11 +20,11 @@ class FreeProvider(BaseProvider):
     def send(self, msg):
         params = {
             'user': self.params['api_id'],
-            'pass': self.params['api_key'],
-            'msg': msg,
+            'passwd': self.params['api_key']
         }
-        res = requests.get('https://smsapi.free-mobile.fr/sendmsg',
-                           params=params, verify=False)
+        f = FreeClient(**params)
+        res = f.send_sms(msg)
+
         if res.status_code == 200:
             return True
         if res.status_code == 400:

@@ -10,6 +10,7 @@ arrow==0.4.4
 closure==20121212
 coverage==3.7.1
 cssmin==0.2.0
+freesms==0.1.0
 gunicorn==18.0
 itsdangerous==0.24
 pep8==1.5.7
