@@ -33,7 +33,7 @@ initialize the l10n files:
     curl "https://raw.githubusercontent.com/angular/angular.js/master/src/ngLocale/angular-locale_es.js" > static/js/angular-locale_es.js
     make babel-extract
 
-Now edit `translations/es/LC_MESSAGES/messages.mo`, then compile it:
+Now edit `translations/es/LC_MESSAGES/messages.po`, then compile it:
 
     make babel-compile
 
