@@ -4,6 +4,8 @@
 a smartphone and can setup reminders instead of scheduling SMS messages. Feel
 free to reuse or adapt the code to your needs.*
 
+![](https://github.com/bfontaine/RemindMe/raw/master/assets/screenshot.png)
+
 ## Setup
 
     make bootstrap
