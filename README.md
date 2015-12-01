@@ -1,6 +1,10 @@
 # RemindMe
 
-## Set Up
+*Note: This project is not supported anymore. I made it for someone who now has
+a smartphone and can setup reminders instead of scheduling SMS messages. Feel
+free to reuse or adapt the code to your needs.*
+
+## Setup
 
     make bootstrap
 
